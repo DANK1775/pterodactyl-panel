@@ -1,0 +1,51 @@
+include:
+  - template: Security/Container-Scanning.gitlab-ci.yml
+
+image: docker:latest
+
+services:
+  - name: docker:dind
+    alias: docker
+
+variables:
+  DOCKER_TLS_CERTDIR: "/certs"
+  CS_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+stages:
+  - build
+  - test
+  - deploy
+
+build-and-push-x86:
+  stage: build
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - docker buildx create --use
+  script:
+    - if [ -n "$CI_COMMIT_TAG" ]; then
+        TAGS="-t $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG -t $CI_REGISTRY_IMAGE:latest";
+      else
+        TAGS="-t $CI_REGISTRY_IMAGE:latest";
+      fi
+    - docker buildx build
+      --platform linux/amd64
+      --cache-from type=registry,ref=$CI_REGISTRY_IMAGE:cache
+      --cache-to type=registry,ref=$CI_REGISTRY_IMAGE:cache,mode=max
+      --push
+      $TAGS .
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG
+
+deploy-dokploy:
+  stage: deploy
+  image: curlimages/curl:latest
+  script:
+    - if [ -z "$DOKPLOY_WEBHOOK_URL" ]; then echo "Error - Falta la URL de DOKPLOY_WEBHOOK_URL"; exit 1; fi
+    - curl -X POST "$DOKPLOY_WEBHOOK_URL"
+    - echo "Webhook enviado a Dokploy exitosamente"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG

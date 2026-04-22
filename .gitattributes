@@ -1,0 +1,5 @@
+# Forzar line endings Unix (LF) en scripts que se ejecutan dentro de contenedores Linux
+*.sh text eol=lf
+.env.example text eol=lf
+entrypoint.sh text eol=lf
+bpinstaller.sh text eol=lf

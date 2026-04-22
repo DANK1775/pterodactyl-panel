@@ -132,9 +132,13 @@ fi
 
 echo "Ejecutando instalador de Blueprint..."
 
-# Ejecutar el instalador de Blueprint automatizando sus prompts interactivos con 'yes'
-# pipefail garantiza que un error en blueprint.sh se propague correctamente
-if ! yes | bash blueprint.sh; then
+# Desactivar temporalmente pipefail para evitar que SIGPIPE de 'yes' falle el script
+set +o pipefail
+yes | bash blueprint.sh
+BP_EXIT=$?
+set -o pipefail
+
+if [ $BP_EXIT -ne 0 ]; then
     echo "❌ Error: El instalador de Blueprint falló"
     exit 1
 fi

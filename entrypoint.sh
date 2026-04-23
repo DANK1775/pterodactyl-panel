@@ -105,7 +105,6 @@ fi
 if [ ! -f "/app/.arix_installed" ]; then
     echo "Ejecutando instalador de Arix Theme y Addons..."
     bash /arixinstaller.sh
-    touch /app/.arix_installed
 else
     echo "⏭️ Arix ya fue instalado en este contenedor."
 fi

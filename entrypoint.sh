@@ -68,6 +68,11 @@ if [ ! -f "/app/.blueprintrc" ] || [ ! -f "/app/blueprint.sh" ]; then
     bash /bpinstaller.sh
 fi
 
+# LIMPIEZA VITAL DE CACHÉ PARA QUE RECONOZCA BLUEPRINT
+php artisan optimize:clear
+php artisan view:clear
+php artisan config:clear
+
 # Ejecutar comando de Blueprint para inyectar/preparar assets en resources
 php artisan blueprint:build --no-interaction || echo "⚠️  Fallo blueprint:build, continuando..."
 

@@ -66,10 +66,10 @@ php artisan migrate --force --seed --step
 if [ ! -f "/app/.blueprintrc" ] || [ ! -f "/app/blueprint.sh" ]; then
     echo "Instalando Blueprint framework..."
     bash /bpinstaller.sh
-
-    # Ejecutar comando de Blueprint para inyectar/preparar assets en resources
-    php artisan blueprint:build --no-interaction || echo "⚠️  Fallo blueprint:build, continuando..."
 fi
+
+# Ejecutar comando de Blueprint para inyectar/preparar assets en resources
+php artisan blueprint:build --no-interaction || echo "⚠️  Fallo blueprint:build, continuando..."
 
 # ==========================================
 # Instalar Arix Theme y Addons
@@ -82,7 +82,7 @@ bash /arixinstaller.sh
 # Autocompilado del frontend (assets / Pterodactyl Panel)
 # ==========================================
 echo "Reconstruyendo assets del panel (Producción)..."
-yarn install
+yarn install --frozen-lockfile
 export NODE_OPTIONS=--openssl-legacy-provider
 yarn run build:production
 

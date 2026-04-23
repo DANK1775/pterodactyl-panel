@@ -90,7 +90,13 @@ php artisan view:clear
 php artisan config:clear
 
 # Ejecutar comando de Blueprint para inyectar/preparar assets en resources
-php artisan blueprint:build --no-interaction
+# Algunas versiones de Blueprint no exponen el namespace "blueprint" en Artisan
+# después de ejecutar blueprint.sh. Si no existe, se considera instalado y se continúa.
+if php artisan list --raw | grep -q '^blueprint'; then
+    php artisan blueprint:build --no-interaction
+else
+    echo "⚠️ Namespace blueprint no disponible en Artisan; Blueprint ya fue instalado por blueprint.sh."
+fi
 
 # ==========================================
 # 3. Instalar Arix Theme y Addons

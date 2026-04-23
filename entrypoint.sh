@@ -61,26 +61,28 @@ sleep 10
 php artisan migrate --force --seed --step
 
 # Instalar Blueprint y reconstruir assets SOLO si aún no está instalado.
-# La guardia usa los mismos archivos que comprueba bpinstaller.sh.
 if [ ! -f "/app/.blueprintrc" ] || [ ! -f "/app/blueprint.sh" ]; then
     echo "Instalando Blueprint framework..."
     bash /bpinstaller.sh
 
-    # Después de instalar Blueprint, reconstruir los assets del panel modificado
-    echo "Reconstruyendo assets del panel modificado por Blueprint..."
-
-    # 1. Asegurar todas las dependencias de Node (ahora necesitamos las dev también para build)
-    yarn install --frozen-lockfile
-
-    # 2. Ejecutar comando de Blueprint para inyectar/preparar assets en resources
+    # Ejecutar comando de Blueprint para inyectar/preparar assets en resources
     php artisan blueprint:build --no-interaction || echo "⚠️  Fallo blueprint:build, continuando..."
-
-    # 3. Compilar producción final (Webpack/Vite)
-    export NODE_OPTIONS=--openssl-legacy-provider
-    yarn run build:production
-else
-    echo "Blueprint ya está instalado, saltando instalación."
 fi
+
+# ==========================================
+# Instalar Arix Theme y Addons
+# (Se ejecuta antes de compilar el frontend para que recoja cualquier vista nueva)
+# ==========================================
+echo "Ejecutando instalador de Arix Theme y Addons..."
+bash /arixinstaller.sh
+
+# ==========================================
+# Autocompilado del frontend (assets / Pterodactyl Panel)
+# ==========================================
+echo "Reconstruyendo assets del panel (Producción)..."
+yarn install
+export NODE_OPTIONS=--openssl-legacy-provider
+yarn run build:production
 
 # Publicar assets de Blueprint y extensiones en public/
 # Esto es necesario porque Blueprint genera los assets en .blueprint/ pero no los
@@ -104,12 +106,13 @@ chmod -R 775 /app/storage /app/bootstrap/cache /app/.blueprintrc /app/.blueprint
 
 # Asegurar que el directorio de assets exista y tenga permisos
 if [ -d "/app/public/assets" ]; then
-    chown -R nginx:nginx /app/public/assets || chown -R www-data:www-data /app/public/assets || true
-    chmod -R 755 /app/public/assets
+    chown -R "$OWNERSHIP" /app/public/assets 2>/dev/null || true
+    chmod -R 755 /app/public/assets 2>/dev/null || true
 fi
 
-#migracion final para asegurarnos que todo lo que se instalo migre (es un requisito de bp y algunos plugins)
-php artisan migrate --force --seed --step
+# Migración final para asegurarnos de que todo lo que se instaló
+# (Blueprint, Arix, otros plugins) migre correctamente.
+php artisan migrate --force --step
 
 # Configurar SSL si se proveen certificados
 CERT_FILE=""

@@ -4,12 +4,16 @@ USER root
 
 WORKDIR /app
 
-# install basic dependencies (node/yarn) if needed for custom assets
-# jq agregado para análisis robusto de JSON en el instalador de Blueprint (PR #571)
+# Copiamos automáticamente las carpetas de Arix en el contenedor para que estén listas para el instalador
+# Fusiona las carpetas de origen (app, resources, routes, etc) con las de Pterodactyl
+COPY ./arix/theme/pterodactyl/ /app/
+COPY ./arix/addons/pterodactyl/ /app/
+# Nos aseguramos de mantener dependencias actualizadas
 RUN apk update && \
-    apk add --no-cache ca-certificates curl git gnupg unzip wget zip bash tar sed nodejs npm yarn ncurses mysql-client jq && \
+    apk add --no-cache ca-certificates curl git gnupg unzip wget zip bash tar sed nodejs npm yarn ncurses mysql-client jq composer && \
     npm i -g yarn && \
-    yarn install --frozen-lockfile
+    yarn install && \
+    chown -R root:root /app/*
 
 # build assets
 RUN export NODE_OPTIONS=--openssl-legacy-provider && \
@@ -33,7 +37,8 @@ RUN mkdir -p /var/log/supervisord
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./bpinstaller.sh /bpinstaller.sh
-RUN chmod +x /entrypoint.sh /bpinstaller.sh
+COPY ./arixinstaller.sh /arixinstaller.sh
+RUN chmod +x /entrypoint.sh /bpinstaller.sh /arixinstaller.sh
 
 # run entrypoint script (migration and setup) and then start supervisor
 ENTRYPOINT ["/entrypoint.sh"]

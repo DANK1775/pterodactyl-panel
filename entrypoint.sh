@@ -56,6 +56,7 @@ fi
 
 chmod 644 /app/.env
 chown nginx:nginx /app/.env || chown www-data:www-data /app/.env || true
+export NODE_OPTIONS=--openssl-legacy-provider
 
 # Detectar ownership para permisos finales
 if id "nginx" &>/dev/null; then

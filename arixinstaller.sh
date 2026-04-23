@@ -3,6 +3,7 @@ set -e
 
 export TERM=xterm
 export DEBIAN_FRONTEND=noninteractive
+export NODE_OPTIONS=--openssl-legacy-provider
 
 echo "🚀 Iniciando proceso de instalación/configuración de Arix Theme y Addon Pack..."
 

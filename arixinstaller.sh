@@ -26,7 +26,7 @@ composer dump-autoload 2>/dev/null || true
 
 # 1. Instalar Arix Addon Pack
 # Verificamos si la variable PLUGINS_ADDON_LICENSE_KEY existe y no está vacía
-if grep -q '^PLUGINS_ADDON_LICENSE_KEY=' /app/.env && [ -n "$(grep '^PLUGINS_ADDON_LICENSE_KEY=' /app/.env | cut -d'=' -f2)" ]; then
+if [ -n "$PLUGINS_ADDON_LICENSE_KEY" ] || (grep -q '^PLUGINS_ADDON_LICENSE_KEY=' /app/.env && [ -n "$(grep '^PLUGINS_ADDON_LICENSE_KEY=' /app/.env | cut -d'=' -f2 | tr -d '\"\'')" ]); then
     echo "📦 Licencia de Addons detectada. Ejecutando instalación de Arix Addon Pack..."
     php artisan addons --no-interaction || echo "⚠️ Falló la instalación de Arix Addons, continuando..."
 else
@@ -35,7 +35,7 @@ fi
 
 # 2. Instalar Arix Theme
 # Verificamos si la variable ARIX_LICENSE_KEY existe y no está vacía
-if grep -q '^ARIX_LICENSE_KEY=' /app/.env && [ -n "$(grep '^ARIX_LICENSE_KEY=' /app/.env | cut -d'=' -f2)" ]; then
+if [ -n "$ARIX_LICENSE_KEY" ] || (grep -q '^ARIX_LICENSE_KEY=' /app/.env && [ -n "$(grep '^ARIX_LICENSE_KEY=' /app/.env | cut -d'=' -f2 | tr -d '\"\'')" ]); then
     echo "🎨 Licencia de Tema detectada. Ejecutando instalación de Arix Theme..."
     php artisan arix --no-interaction || echo "⚠️ Falló la instalación de Arix Theme, continuando..."
 else

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -eo pipefail
+set -e
 
 export TERM=xterm
 export DEBIAN_FRONTEND=noninteractive

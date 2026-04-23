@@ -73,18 +73,29 @@ php artisan blueprint:build --no-interaction || echo "⚠️  Fallo blueprint:bu
 
 # ==========================================
 # Instalar Arix Theme y Addons
-# (Se ejecuta antes de compilar el frontend para que recoja cualquier vista nueva)
 # ==========================================
-echo "Ejecutando instalador de Arix Theme y Addons..."
-bash /arixinstaller.sh
+if [ ! -f "/app/.arix_installed" ]; then
+    echo "Ejecutando instalador de Arix Theme y Addons..."
+    bash /arixinstaller.sh
+    touch /app/.arix_installed
+else
+    echo "⏭️ Arix ya fue instalado en este contenedor."
+fi
 
 # ==========================================
 # Autocompilado del frontend (assets / Pterodactyl Panel)
 # ==========================================
-echo "Reconstruyendo assets del panel (Producción)..."
-yarn install --frozen-lockfile
-export NODE_OPTIONS=--openssl-legacy-provider
-yarn run build:production
+if [ ! -f "/app/.assets_compiled" ]; then
+    echo "Reconstruyendo assets del panel (Producción)..."
+    yarn install --frozen-lockfile
+    export NODE_OPTIONS=--openssl-legacy-provider
+    yarn run build:production || { echo "❌ FALLÓ yarn build:production. Verifica la memoria RAM."; exit 1; }
+    touch /app/.assets_compiled
+else
+    echo "⏭️ Assets ya compilados en este contenedor, saltando yarn build..."
+fi
+
+
 
 # Publicar assets de Blueprint y extensiones en public/
 # Esto es necesario porque Blueprint genera los assets en .blueprint/ pero no los

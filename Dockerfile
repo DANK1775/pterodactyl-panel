@@ -15,10 +15,6 @@ RUN apk update && \
     yarn install && \
     chown -R root:root /app/*
 
-# build assets
-RUN export NODE_OPTIONS=--openssl-legacy-provider && \
-    yarn build:production
-
 # Configurar cliente MariaDB para no exigir SSL (Fix ERROR 2026)
 # NOTA DE SEGURIDAD: Esto deshabilita SSL para la conexión entre Panel -> Base de Datos (interna en Docker).
 # Es necesario porque el contenedor de MariaDB por defecto no tiene certificados configurados y el cliente

@@ -57,12 +57,28 @@ fi
 chmod 644 /app/.env
 chown nginx:nginx /app/.env || chown www-data:www-data /app/.env || true
 
+# Detectar ownership para permisos finales
+if id "nginx" &>/dev/null; then
+    OWNERSHIP="nginx:nginx"
+else
+    OWNERSHIP="www-data:www-data"
+fi
+
 echo "Esperando a la base de datos..."
 sleep 10
 
+# ==========================================
+# 1. Preparar base de Pterodactyl
+# ==========================================
 php artisan migrate --force --seed --step
+php artisan optimize:clear
+php artisan view:clear
+php artisan config:clear
 
-# Instalar Blueprint y reconstruir assets SOLO si aún no está instalado.
+# ==========================================
+# 2. Instalar Blueprint Framework
+# ==========================================
+# Instalar Blueprint SOLO si aún no está instalado.
 if [ ! -f "/app/.blueprintrc" ] || [ ! -f "/app/blueprint.sh" ]; then
     echo "Instalando Blueprint framework..."
     bash /bpinstaller.sh
@@ -74,11 +90,12 @@ php artisan view:clear
 php artisan config:clear
 
 # Ejecutar comando de Blueprint para inyectar/preparar assets en resources
-php artisan blueprint:build --no-interaction || echo "⚠️  Fallo blueprint:build, continuando..."
+php artisan blueprint:build --no-interaction
 
 # ==========================================
-# Instalar Arix Theme y Addons
+# 3. Instalar Arix Theme y Addons
 # ==========================================
+# Arix realizará su propia compilación (Yarn Build) y validación durante su instalador.
 if [ ! -f "/app/.arix_installed" ]; then
     echo "Ejecutando instalador de Arix Theme y Addons..."
     bash /arixinstaller.sh
@@ -86,21 +103,6 @@ if [ ! -f "/app/.arix_installed" ]; then
 else
     echo "⏭️ Arix ya fue instalado en este contenedor."
 fi
-
-# ==========================================
-# Autocompilado del frontend (assets / Pterodactyl Panel)
-# ==========================================
-if [ ! -f "/app/.assets_compiled" ]; then
-    echo "Reconstruyendo assets del panel (Producción)..."
-    yarn install --frozen-lockfile
-    export NODE_OPTIONS=--openssl-legacy-provider
-    yarn run build:production || { echo "❌ FALLÓ yarn build:production. Verifica la memoria RAM."; exit 1; }
-    touch /app/.assets_compiled
-else
-    echo "⏭️ Assets ya compilados en este contenedor, saltando yarn build..."
-fi
-
-
 
 # Publicar assets de Blueprint y extensiones en public/
 # Esto es necesario porque Blueprint genera los assets en .blueprint/ pero no los

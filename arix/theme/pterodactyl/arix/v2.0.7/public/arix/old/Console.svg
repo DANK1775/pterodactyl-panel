@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="253" height="140" viewBox="0 0 253 140">
+  <g id="Group_686" data-name="Group 686" transform="translate(4754 6427)">
+    <g id="Wrapper" transform="translate(-4754 -6427)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="253" height="140" rx="10" stroke="none"/>
+      <rect x="1" y="1" width="251" height="138" rx="9" fill="none"/>
+    </g>
+    <g id="Rectangle_855" data-name="Rectangle 855" transform="translate(-4744 -6417)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="233" height="120" rx="7" stroke="none"/>
+      <rect x="1" y="1" width="231" height="118" rx="6" fill="none"/>
+    </g>
+    <g id="Group_683" data-name="Group 683" transform="translate(-4639 -6365.532)">
+      <path id="Path_503" data-name="Path 503" d="M7,11,9,9,7,7" transform="translate(-2.101 -2.554)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Path_504" data-name="Path 504" d="M11,13h4" transform="translate(-2.101 -2.554)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_805" data-name="Rectangle 805" width="18" height="18" rx="2" transform="translate(0 -0.468)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

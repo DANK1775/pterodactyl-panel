@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="253" height="188" viewBox="0 0 253 188">
+  <g id="loginLayout-1" transform="translate(4759 6865)">
+    <g id="Wrapper" transform="translate(-4759 -6865)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="253" height="188" rx="10" stroke="none"/>
+      <rect x="1" y="1" width="251" height="186" rx="9" fill="none"/>
+    </g>
+    <g id="Button" transform="translate(-4674 -6736)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="84" height="19" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="82" height="17" rx="4" fill="none"/>
+    </g>
+    <g id="Field-2" transform="translate(-4674 -6775)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="84" height="24" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="82" height="22" rx="4" fill="none"/>
+    </g>
+    <g id="Field-1" transform="translate(-4674 -6806)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="84" height="24" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="82" height="22" rx="4" fill="none"/>
+    </g>
+    <rect id="Logo" width="54" height="9" rx="2" transform="translate(-4674 -6824)" fill="#fff" opacity="0.5"/>
+  </g>
+</svg>

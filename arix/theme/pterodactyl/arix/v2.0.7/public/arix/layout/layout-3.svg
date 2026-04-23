@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="253" height="188" viewBox="0 0 253 188">
+  <g id="Group_674" data-name="Group 674" transform="translate(4759 6865)">
+    <g id="Rectangle_785" data-name="Rectangle 785" transform="translate(-4759 -6865)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="253" height="188" rx="10" stroke="none"/>
+      <rect x="1" y="1" width="251" height="186" rx="9" fill="none"/>
+    </g>
+    <g id="Rectangle_790" data-name="Rectangle 790" transform="translate(-4759 -6865)" fill="rgba(255,255,255,0.33)" stroke="#fff" stroke-width="2">
+      <path d="M10,0H243a10,10,0,0,1,10,10V74a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V10A10,10,0,0,1,10,0Z" stroke="none"/>
+      <path d="M10,1H243a9,9,0,0,1,9,9V73a0,0,0,0,1,0,0H1a0,0,0,0,1,0,0V10A9,9,0,0,1,10,1Z" fill="none"/>
+    </g>
+    <rect id="Rectangle_799" data-name="Rectangle 799" width="26" height="9" rx="2" transform="translate(-4582 -6824)" fill="#3d8f1f"/>
+    <rect id="Rectangle_800" data-name="Rectangle 800" width="26" height="9" rx="2" transform="translate(-4554 -6824)" fill="#8f1f20"/>
+    <rect id="Rectangle_801" data-name="Rectangle 801" width="54" height="9" rx="2" transform="translate(-4736 -6824)" fill="#fff" opacity="0.5"/>
+    <g id="Rectangle_804" data-name="Rectangle 804" transform="translate(-4736 -6780)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="208" height="83" rx="7" stroke="none"/>
+      <rect x="1" y="1" width="206" height="81" rx="6" fill="none"/>
+    </g>
+    <g id="Group_677" data-name="Group 677" transform="translate(-4644 -6750)">
+      <path id="Path_503" data-name="Path 503" d="M7,11,9,9,7,7" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Path_504" data-name="Path 504" d="M11,13h4" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_805" data-name="Rectangle 805" width="18" height="18" rx="2" transform="translate(3 3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

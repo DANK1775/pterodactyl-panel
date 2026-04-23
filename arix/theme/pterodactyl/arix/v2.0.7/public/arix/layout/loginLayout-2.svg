@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="253" height="188" viewBox="0 0 253 188">
+  <g id="loginLayout-2" transform="translate(4759 6865)">
+    <g id="wrapper" transform="translate(-4759 -6865)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="253" height="188" rx="10" stroke="none"/>
+      <rect x="1" y="1" width="251" height="186" rx="9" fill="none"/>
+    </g>
+    <g id="field-1" transform="translate(-4735 -6806)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="84" height="24" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="82" height="22" rx="4" fill="none"/>
+    </g>
+    <g id="field-2" transform="translate(-4735 -6775)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="84" height="24" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="82" height="22" rx="4" fill="none"/>
+    </g>
+    <g id="button" transform="translate(-4735 -6736)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="84" height="19" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="82" height="17" rx="4" fill="none"/>
+    </g>
+    <rect id="logo" width="54" height="9" rx="2" transform="translate(-4735 -6824)" fill="#fff" opacity="0.5"/>
+    <g id="image" transform="translate(-4633 -6865)" fill="rgba(255,255,255,0.33)" stroke="#fff" stroke-width="2">
+      <path d="M0,0H117a10,10,0,0,1,10,10V178a10,10,0,0,1-10,10H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" stroke="none"/>
+      <path d="M1,1H117a9,9,0,0,1,9,9V178a9,9,0,0,1-9,9H1a0,0,0,0,1,0,0V1A0,0,0,0,1,1,1Z" fill="none"/>
+    </g>
+    <g id="image_icon" transform="translate(-4587 -6788)">
+      <rect id="rectangle" width="29" height="29" rx="2" transform="translate(3 3)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <circle id="ellipse" cx="3.5" cy="3.5" r="3.5" transform="translate(9 9)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="path" d="M30.167,17.244l-4.972-4.972a3.222,3.222,0,0,0-4.556,0L6,26.91" transform="translate(1.833 5.09)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

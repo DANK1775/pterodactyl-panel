@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="253" height="140" viewBox="0 0 253 140">
+  <g id="Group_681" data-name="Group 681" transform="translate(4475 6427)">
+    <g id="Wrapper" transform="translate(-4475 -6427)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="253" height="140" rx="10" stroke="none"/>
+      <rect x="1" y="1" width="251" height="138" rx="9" fill="none"/>
+    </g>
+    <g id="Rectangle_812" data-name="Rectangle 812" transform="translate(-4465 -6417)" fill="rgba(255,255,255,0.33)" stroke="#fff" stroke-width="2">
+      <rect width="233" height="51" rx="7" stroke="none"/>
+      <rect x="1" y="1" width="231" height="49" rx="6" fill="none"/>
+    </g>
+    <rect id="Rectangle_813" data-name="Rectangle 813" width="60" height="14" rx="2" transform="translate(-4452 -6404)" fill="#fff" opacity="0.5"/>
+    <g id="Button" transform="translate(-4465 -6316)" fill="rgba(255,255,255,0)" stroke="#fff" stroke-width="2">
+      <rect width="233" height="19" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="231" height="17" rx="4" fill="none"/>
+    </g>
+    <rect id="Rectangle_814" data-name="Rectangle 814" width="60" height="10" rx="2" transform="translate(-4465 -6355)" fill="#fff" opacity="0.5"/>
+    <rect id="Rectangle_815" data-name="Rectangle 815" width="60" height="10" rx="2" transform="translate(-4465 -6337)" fill="#fff" opacity="0.5"/>
+    <rect id="Rectangle_816" data-name="Rectangle 816" width="60" height="10" rx="2" transform="translate(-4348 -6355)" fill="#fff" opacity="0.5"/>
+    <rect id="Rectangle_817" data-name="Rectangle 817" width="60" height="10" rx="2" transform="translate(-4348 -6337)" fill="#fff" opacity="0.5"/>
+  </g>
+</svg>

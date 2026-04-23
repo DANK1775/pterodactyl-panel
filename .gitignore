@@ -1,4 +1,4 @@
-/arix
+# /arix <- Borrado para permitir que se suba a GitHub
 .env
 data/
 .claude/

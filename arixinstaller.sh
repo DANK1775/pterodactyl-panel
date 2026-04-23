@@ -28,7 +28,7 @@ composer dump-autoload 2>/dev/null || true
 # Verificamos si la variable PLUGINS_ADDON_LICENSE_KEY existe y no está vacía
 if [ -n "$PLUGINS_ADDON_LICENSE_KEY" ] || (grep -q '^PLUGINS_ADDON_LICENSE_KEY=' /app/.env && [ -n "$(grep '^PLUGINS_ADDON_LICENSE_KEY=' /app/.env | cut -d'=' -f2 | sed "s/['\"]//g")" ]); then
     echo "📦 Licencia de Addons detectada. Ejecutando instalación de Arix Addon Pack..."
-    php artisan addons --no-interaction || echo "⚠️ Falló la instalación de Arix Addons, continuando..."
+    yes | php artisan addons install --no-interaction || echo "⚠️ Falló la instalación de Arix Addons, continuando..."
 else
     echo "⏭️ PLUGINS_ADDON_LICENSE_KEY no encontrada o vacía. Saltando instalación de Arix Addon Pack."
 fi
@@ -37,17 +37,17 @@ fi
 # Verificamos si la variable ARIX_LICENSE_KEY existe y no está vacía
 if [ -n "$ARIX_LICENSE_KEY" ] || (grep -q '^ARIX_LICENSE_KEY=' /app/.env && [ -n "$(grep '^ARIX_LICENSE_KEY=' /app/.env | cut -d'=' -f2 | sed "s/['\"]//g")" ]); then
     echo "🎨 Licencia de Tema detectada. Ejecutando instalación de Arix Theme..."
-    php artisan arix --no-interaction || echo "⚠️ Falló la instalación de Arix Theme, continuando..."
+    yes | php artisan arix install --no-interaction || echo "⚠️ Falló la instalación de Arix Theme, continuando..."
 else
     echo "⏭️ ARIX_LICENSE_KEY no encontrada o vacía. Saltando instalación de Arix Theme."
 fi
 
-# 3. Comandos de optimización y resolución de errores
+# 3. Comandos de optimización y resolución de errores (Basado en la documentación oficial)
 echo "⚙️ Ejecutando migraciones y optimizaciones tras instalar Arix..."
 php artisan migrate --force
 php artisan optimize:clear
-php artisan view:clear
-php artisan config:clear
+php artisan optimize
+chmod -R 755 storage/* bootstrap/cache
 php artisan route:clear
 php artisan optimize
 

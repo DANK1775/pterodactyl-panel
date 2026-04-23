@@ -4,16 +4,28 @@ USER root
 
 WORKDIR /app
 
-# Copiamos automáticamente las carpetas de Arix en el contenedor para que estén listas para el instalador
-# Fusiona las carpetas de origen (app, resources, routes, etc) con las de Pterodactyl
+# Dependencias del sistema. Se instalan ANTES de copiar archivos de Arix porque
+# los comandos `php artisan arix` y `php artisan addons` usan rsync para mover
+# archivos a /app, y porque necesitamos jq para parsear el release de Blueprint.
+RUN apk update && \
+    apk add --no-cache ca-certificates curl git gnupg unzip wget zip bash tar sed \
+    nodejs npm yarn ncurses mysql-client jq rsync
+
+# Copiamos las carpetas de Arix en el contenedor para que estén listas para el
+# instalador. Fusiona las carpetas de origen (app, config, arix/<ver>, addons/<ver>)
+# con las de Pterodactyl.
+#   - `arix/theme/pterodactyl/`   => comando `arix`   + config + carpeta `arix/v2.0.7/`
+#   - `arix/addons/pterodactyl/`  => comando `addons` + config + carpeta `addons/v1.3.6/`
 COPY ./arix/theme/pterodactyl/ /app/
 COPY ./arix/addons/pterodactyl/ /app/
-# Nos aseguramos de mantener dependencias actualizadas
-RUN apk update && \
-    apk add --no-cache ca-certificates curl git gnupg unzip wget zip bash tar sed nodejs npm yarn ncurses mysql-client jq composer && \
-    npm i -g yarn && \
-    yarn install && \
-    chown -R root:root /app/*
+
+# Regenerar el autoloader de Composer para que los comandos recién copiados
+# (Arix, Addons, ArixLang) sean descubiertos por Laravel/Artisan al arrancar.
+# Sin esto las rutas Pterodactyl\\Console\\Commands\\Arix no se resuelven cuando
+# la imagen se construye sobre el classmap optimizado del panel.
+RUN if [ -f /app/composer.json ]; then cd /app && composer dump-autoload --no-scripts --optimize 2>/dev/null || true; fi
+
+RUN chown -R root:root /app/*
 
 # Configurar cliente MariaDB para no exigir SSL (Fix ERROR 2026)
 # NOTA DE SEGURIDAD: Esto deshabilita SSL para la conexión entre Panel -> Base de Datos (interna en Docker).

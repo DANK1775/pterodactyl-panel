@@ -65,12 +65,38 @@ else
     OWNERSHIP="www-data:www-data"
 fi
 
-echo "Esperando a la base de datos..."
-sleep 10
+# ==========================================
+# Esperar activamente a que la base de datos esté lista.
+# Antes había un `sleep 10` fijo: insuficiente si MariaDB tarda en inicializar
+# (especialmente la primera vez que crea data_dir) y causa que
+# `php artisan migrate` falle con "Connection refused" / SQLSTATE[HY000].
+# ==========================================
+DB_HOST_VALUE="$(grep -E '^DB_HOST=' /app/.env | head -n1 | cut -d'=' -f2- | tr -d '"' | tr -d "'")"
+DB_PORT_VALUE="$(grep -E '^DB_PORT=' /app/.env | head -n1 | cut -d'=' -f2- | tr -d '"' | tr -d "'")"
+DB_HOST_VALUE="${DB_HOST_VALUE:-database}"
+DB_PORT_VALUE="${DB_PORT_VALUE:-3306}"
+
+echo "Esperando a la base de datos en ${DB_HOST_VALUE}:${DB_PORT_VALUE}..."
+for i in $(seq 1 60); do
+    if (echo > /dev/tcp/${DB_HOST_VALUE}/${DB_PORT_VALUE}) >/dev/null 2>&1; then
+        echo "✓ Base de datos aceptando conexiones TCP."
+        break
+    fi
+    if [ "$i" -eq 60 ]; then
+        echo "⚠️ La base de datos no respondió tras 60s, continuando igualmente..."
+    fi
+    sleep 1
+done
+# Pausa adicional corta para que MariaDB termine de inicializar privilegios
+sleep 2
 
 # ==========================================
 # 1. Preparar base de Pterodactyl
 # ==========================================
+# Regenerar autoloader antes de correr cualquier artisan, ya que el Dockerfile
+# copia los comandos Arix/Addons y necesitamos que Composer los descubra.
+(cd /app && composer dump-autoload --no-scripts --optimize 2>/dev/null) || true
+
 php artisan migrate --force --seed --step
 php artisan optimize:clear
 php artisan view:clear

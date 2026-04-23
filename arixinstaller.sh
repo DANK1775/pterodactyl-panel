@@ -61,8 +61,22 @@ install_with_output_guard() {
     local out_file
     out_file=$(mktemp)
 
+    # Los comandos `php artisan arix install` y `php artisan addons install` usan:
+    #   1) confirm('dependencias instaladas?', default=yes)  -> 'y' o línea vacía
+    #   2) choice('Select a version:', $versions)            -> índice numérico ('0')
+    #   3) Posible confirm adicional (addons, NODE_OPTIONS)  -> 'y' o línea vacía
+    #
+    # NO podemos usar `--no-interaction` porque `choice()` no tiene default y tira
+    # excepción. Tampoco podemos usar `yes | ...` porque "y" como respuesta a la
+    # pregunta de `choice()` es inválido y provoca que Symfony aborte tras varios
+    # reintentos. Alimentamos stdin con la secuencia exacta: y, 0, y, y, ...
     set +e
-    yes | "$@" 2>&1 | tee "$out_file"
+    {
+        echo y
+        echo 0
+        # Respuestas extra para cualquier prompt de confirm posterior.
+        for _ in $(seq 1 20); do echo y; done
+    } | "$@" 2>&1 | tee "$out_file"
     local cmd_exit=${PIPESTATUS[1]}
     set -e
 
@@ -72,7 +86,7 @@ install_with_output_guard() {
         return 1
     fi
 
-    if grep -qiE "Fail, please contact Weijers\.one\.|error Command failed with exit code 1" "$out_file"; then
+    if grep -qiE "Fail, please contact Weijers\.one\.|error Command failed with exit code 1|License is invalid" "$out_file"; then
         echo "❌ ${label}: se detectó fallo de validación/build en salida del instalador."
         rm -f "$out_file"
         return 1
@@ -89,6 +103,13 @@ else
     OWNERSHIP="www-data:www-data"
 fi
 
+# Verificar que rsync esté disponible (requerido por `php artisan arix install`
+# y `php artisan addons install`). Si no está, intentar instalarlo.
+if ! command -v rsync >/dev/null 2>&1; then
+    echo "⚠️ rsync no encontrado. Intentando instalar (requerido por los instaladores de Arix)..."
+    apk add --no-cache rsync 2>/dev/null || apt-get install -y rsync 2>/dev/null || true
+fi
+
 # Limpiar caché ANTES de instalar para que Laravel detecte los comandos nuevos
 # (Si subes los archivos físicos pero Laravel no los ha registrado, el artisan falla)
 echo "🧹 Limpiando caché previa de Laravel..."
@@ -96,28 +117,47 @@ php artisan route:clear 2>/dev/null || true
 php artisan view:clear 2>/dev/null || true
 php artisan config:clear 2>/dev/null || true
 php artisan cache:clear 2>/dev/null || true
-composer dump-autoload 2>/dev/null || true
+composer dump-autoload --no-scripts 2>/dev/null || true
+
+# Verificar que los comandos de Arix estén registrados en Artisan antes de usarlos.
+# Si no lo están, probablemente los archivos no se copiaron al /app o el autoloader
+# no se regeneró — fallar rápido con un mensaje útil en vez de intentar instalar.
+if ! php artisan list --raw 2>/dev/null | grep -q '^arix'; then
+    echo "⚠️ Comando 'arix' NO registrado. ¿Se copió /app/app/Console/Commands/Arix.php? ¿Se ejecutó composer dump-autoload?"
+fi
+if ! php artisan list --raw 2>/dev/null | grep -q '^addons'; then
+    echo "⚠️ Comando 'addons' NO registrado. ¿Se copió /app/app/Console/Commands/Addons.php?"
+fi
 
 ADDON_LICENSE_KEY="$(read_env_value "PLUGINS_ADDON_LICENSE_KEY")"
 THEME_LICENSE_KEY="$(read_env_value "ARIX_LICENSE_KEY")"
 ARIX_COMPONENT_INSTALLED=false
 
-# 1. Instalar Arix Addon Pack (solo si licencia valida)
-if validate_arix_license "https://api.arix.gg/resource/arix-addons/verify" "$ADDON_LICENSE_KEY" "Arix Addons"; then
-    echo "📦 Ejecutando instalación de Arix Addon Pack..."
-    install_with_output_guard "Arix Addons" php artisan addons install --no-interaction
-    ARIX_COMPONENT_INSTALLED=true
-else
-    echo "⏭️ Saltando instalación de Arix Addons."
-fi
+# Orden requerido: 1º Tema (asienta la base de assets/traducciones), 2º Addons
+# (depende del build de yarn/assets del tema en muchos casos).
 
-# 2. Instalar Arix Theme (solo si licencia valida)
+# 1. Instalar Arix Theme (solo si licencia valida)
 if validate_arix_license "https://arix.gg/license/arix-theme" "$THEME_LICENSE_KEY" "Arix Theme"; then
     echo "🎨 Ejecutando instalación de Arix Theme..."
-    install_with_output_guard "Arix Theme" php artisan arix install --no-interaction
-    ARIX_COMPONENT_INSTALLED=true
+    if install_with_output_guard "Arix Theme" php artisan arix install; then
+        ARIX_COMPONENT_INSTALLED=true
+        # Limpiar caché entre componentes para que los nuevos providers/rutas/comandos
+        # cargados por el tema estén disponibles al instalar los addons.
+        php artisan optimize:clear 2>/dev/null || true
+        composer dump-autoload --no-scripts 2>/dev/null || true
+    fi
 else
     echo "⏭️ Saltando instalación de Arix Theme."
+fi
+
+# 2. Instalar Arix Addon Pack (solo si licencia valida)
+if validate_arix_license "https://api.arix.gg/resource/arix-addons/verify" "$ADDON_LICENSE_KEY" "Arix Addons"; then
+    echo "📦 Ejecutando instalación de Arix Addon Pack..."
+    if install_with_output_guard "Arix Addons" php artisan addons install; then
+        ARIX_COMPONENT_INSTALLED=true
+    fi
+else
+    echo "⏭️ Saltando instalación de Arix Addons."
 fi
 
 # 3. Comandos de optimización y resolución de errores (Basado en la documentación oficial)

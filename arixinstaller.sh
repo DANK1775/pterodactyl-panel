@@ -249,14 +249,12 @@ fi
 echo "⚙️ Ejecutando migraciones y optimizaciones tras instalar Arix..."
 php artisan migrate --force
 php artisan optimize:clear
-php artisan optimize
-chmod -R 755 storage/* bootstrap/cache
-php artisan route:clear
-php artisan optimize
 
-# 5. Ajustar permisos según la documentación de Arix
+# 5. Ajustar permisos ANTES de cachear para que PHP-FPM (nginx) pueda
+#    escribir en storage/framework/{sessions,views,cache} y bootstrap/cache.
+#    Se usa 775 (no 755) para que el grupo también pueda escribir.
 echo "🔒 Estableciendo permisos de storage y cache..."
-chmod -R 755 storage/* bootstrap/cache 2>/dev/null || true
+chmod -R 775 storage bootstrap/cache 2>/dev/null || true
 chown -R "$OWNERSHIP" storage bootstrap/cache 2>/dev/null || true
 # Los assets de public/ deben ser legibles por nginx tras el rebuild.
 if [ -d /app/public/assets ]; then

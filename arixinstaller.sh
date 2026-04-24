@@ -144,7 +144,10 @@ if [ -f /app/package.json ]; then
         @dnd-kit/utilities
     )
 
-    MISSING_DEPS_FILE="$(mktemp)"
+    MISSING_DEPS_FILE="$(mktemp)" || {
+        echo "❌ No se pudo crear archivo temporal para dependencias JS."
+        exit 1
+    }
     if node - "${REQUIRED_JS_DEPS[@]}" > "$MISSING_DEPS_FILE" <<'NODE_EOF'
 const fs = require("fs");
 
@@ -163,7 +166,10 @@ try {
 }
 NODE_EOF
     then
-        mapfile -t MISSING_JS_DEPS < "$MISSING_DEPS_FILE"
+        MISSING_JS_DEPS=()
+        while IFS= read -r dep; do
+            [ -n "$dep" ] && MISSING_JS_DEPS+=("$dep")
+        done < "$MISSING_DEPS_FILE"
     else
         rm -f "$MISSING_DEPS_FILE"
         echo "❌ Falló la detección de dependencias JS faltantes."

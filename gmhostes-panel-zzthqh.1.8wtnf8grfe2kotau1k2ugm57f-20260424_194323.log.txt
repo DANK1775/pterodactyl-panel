@@ -1,0 +1,965 @@
+2026-04-24T19:23:56.327Z Archivo .env no encontrado o vacío. Generando configuración inicial...
+2026-04-24T19:23:56.330Z Generando APP_KEY...
+2026-04-24T19:23:56.350Z APP_KEY generado: base64:nYPFwqpZcgi9bNzEnr7H0/HA0ZKvLuWCl3+CjyqpfyE=
+2026-04-24T19:23:56.356Z Esperando a la base de datos en database:3306...
+2026-04-24T19:24:55.646Z ⚠️ La base de datos no respondió tras 60s, continuando igualmente...
+2026-04-24T19:24:58.790Z Generating optimized autoload files
+2026-04-24T19:25:01.789Z Generated optimized autoload files containing 7330 classes
+2026-04-24T19:25:02.139Z INFO  Nothing to migrate.
+2026-04-24T19:25:02.142Z INFO  Seeding database.
+2026-04-24T19:25:02.145Z Database\Seeders\NestSeeder ........................................ RUNNING
+2026-04-24T19:25:02.149Z Database\Seeders\NestSeeder ...................................... 3 ms DONE
+2026-04-24T19:25:02.151Z Database\Seeders\EggSeeder ......................................... RUNNING
+2026-04-24T19:25:02.152Z *********************************************
+2026-04-24T19:25:02.152Z *     Updating Eggs for Nest: Minecraft     *
+2026-04-24T19:25:02.152Z *********************************************
+2026-04-24T19:25:02.176Z Updated Vanilla Minecraft
+2026-04-24T19:25:02.185Z Updated Sponge (SpongeVanilla)
+2026-04-24T19:25:02.198Z Updated Paper
+2026-04-24T19:25:02.207Z Updated Bungeecord
+2026-04-24T19:25:02.220Z Updated Forge Minecraft
+2026-04-24T19:25:02.221Z *************************************************
+2026-04-24T19:25:02.221Z *     Updating Eggs for Nest: Source Engine     *
+2026-04-24T19:25:02.221Z *************************************************
+2026-04-24T19:25:02.252Z Updated Ark: Survival Evolved
+2026-04-24T19:25:02.269Z Updated Custom Source Engine Game
+2026-04-24T19:25:02.290Z Updated Garrys Mod
+2026-04-24T19:25:02.300Z Updated Counter-Strike: Global Offensive
+2026-04-24T19:25:02.309Z Updated Insurgency
+2026-04-24T19:25:02.319Z Updated Team Fortress 2
+2026-04-24T19:25:02.320Z *************************************************
+2026-04-24T19:25:02.320Z *     Updating Eggs for Nest: Voice Servers     *
+2026-04-24T19:25:02.320Z *************************************************
+2026-04-24T19:25:02.327Z Updated Mumble Server
+2026-04-24T19:25:02.345Z Updated Teamspeak3 Server
+2026-04-24T19:25:02.346Z ****************************************
+2026-04-24T19:25:02.346Z *     Updating Eggs for Nest: Rust     *
+2026-04-24T19:25:02.346Z ****************************************
+2026-04-24T19:25:02.384Z Updated Rust
+2026-04-24T19:25:02.385Z Database\Seeders\EggSeeder ..................................... 234 ms DONE
+2026-04-24T19:25:02.613Z INFO  Clearing cached bootstrap files.
+2026-04-24T19:25:02.637Z cache .......................................................... 3.27ms DONE
+2026-04-24T19:25:02.656Z compiled ....................................................... 0.97ms DONE
+2026-04-24T19:25:02.677Z config ......................................................... 0.84ms DONE
+2026-04-24T19:25:02.697Z events ......................................................... 0.79ms DONE
+2026-04-24T19:25:02.717Z routes ......................................................... 0.80ms DONE
+2026-04-24T19:25:02.738Z views .......................................................... 1.19ms DONE
+2026-04-24T19:25:03.043Z INFO  Compiled views cleared successfully.
+2026-04-24T19:25:03.272Z INFO  Configuration cache cleared successfully.
+2026-04-24T19:25:03.279Z Instalando Blueprint framework...
+2026-04-24T19:25:03.281Z 🚀 Iniciando proceso de instalación de Blueprint en el contenedor...
+2026-04-24T19:25:03.282Z Detectado usuario web: nginx
+2026-04-24T19:25:03.282Z Verificando dependencias de Blueprint...
+2026-04-24T19:25:03.297Z Node.js versión detectada: v20.18.1
+2026-04-24T19:25:03.297Z ✓ Dependencias verificadas correctamente
+2026-04-24T19:25:03.297Z Instalando Blueprint framework...
+2026-04-24T19:25:03.297Z Obteniendo URL de release usando jq...
+2026-04-24T19:25:03.549Z Descargando Blueprint desde: https://github.com/BlueprintFramework/framework/releases/download/beta-2026-01/release.zip
+2026-04-24T19:25:03.554Z % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-04-24T19:25:03.556Z Dload  Upload   Total   Spent    Left  Speed
+2026-04-24T19:25:03.782Z 0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+2026-04-24T19:25:03.878Z 100  5451k 100  5451k   0     0 16762k     0  --:--:-- --:--:-- --:--:-- 16762k
+2026-04-24T19:25:03.883Z Extrayendo Blueprint framework...
+2026-04-24T19:25:03.884Z Archive:  blueprint-release.zip
+2026-04-24T19:25:03.885Z inflating: CODE_OF_CONDUCT.md
+2026-04-24T19:25:03.885Z inflating: LICENSE.md
+2026-04-24T19:25:03.885Z inflating: README.md
+2026-04-24T19:25:03.885Z inflating: SECURITY.md
+2026-04-24T19:25:03.888Z inflating: app/Transformers/Api/Client/ServerTransformer.php
+2026-04-24T19:25:03.890Z inflating: app/Http/ViewComposers/AssetComposer.php
+2026-04-24T19:25:03.890Z inflating: app/Http/Kernel.php
+2026-04-24T19:25:03.891Z inflating: app/Http/Controllers/Admin/ExtensionsController.php
+2026-04-24T19:25:03.891Z creating: app/Http/Controllers/Admin/Extensions/
+2026-04-24T19:25:03.891Z creating: app/Http/Controllers/Admin/Extensions/Blueprint/
+2026-04-24T19:25:03.892Z inflating: app/Http/Controllers/Admin/Extensions/Blueprint/BlueprintExtensionController.php
+2026-04-24T19:25:03.893Z inflating: app/Services/Helpers/BlueprintExtensionLibrary.php
+2026-04-24T19:25:03.894Z inflating: app/Services/Telemetry/BlueprintTelemetryCollectionService.php
+2026-04-24T19:25:03.894Z inflating: app/Services/Telemetry/RegisterBlueprintTelemetry.php
+2026-04-24T19:25:03.895Z creating: app/Providers/Blueprint/
+2026-04-24T19:25:03.895Z inflating: app/Providers/Blueprint/ExtensionfsConfigProvider.php
+2026-04-24T19:25:03.895Z inflating: app/Providers/Blueprint/RouteServiceProvider.php
+2026-04-24T19:25:03.896Z inflating: app/Providers/AppServiceProvider.php
+2026-04-24T19:25:03.896Z creating: app/BlueprintFramework/
+2026-04-24T19:25:03.896Z creating: app/BlueprintFramework/Services/
+2026-04-24T19:25:03.896Z creating: app/BlueprintFramework/Services/PlaceholderService/
+2026-04-24T19:25:03.896Z inflating: app/BlueprintFramework/Services/PlaceholderService/BlueprintPlaceholderService.php
+2026-04-24T19:25:03.896Z creating: app/BlueprintFramework/Schedules/
+2026-04-24T19:25:03.896Z extracting: app/BlueprintFramework/Schedules/.gitkeep
+2026-04-24T19:25:03.896Z creating: app/BlueprintFramework/Libraries/
+2026-04-24T19:25:03.897Z creating: app/BlueprintFramework/Libraries/ExtensionLibrary/
+2026-04-24T19:25:03.897Z creating: app/BlueprintFramework/Libraries/ExtensionLibrary/Admin/
+2026-04-24T19:25:03.897Z inflating: app/BlueprintFramework/Libraries/ExtensionLibrary/Admin/BlueprintAdminLibrary.php
+2026-04-24T19:25:03.897Z inflating: app/BlueprintFramework/Libraries/ExtensionLibrary/BlueprintBaseLibrary.php
+2026-04-24T19:25:03.897Z creating: app/BlueprintFramework/Libraries/ExtensionLibrary/Client/
+2026-04-24T19:25:03.897Z inflating: app/BlueprintFramework/Libraries/ExtensionLibrary/Client/BlueprintClientLibrary.php
+2026-04-24T19:25:03.897Z creating: app/BlueprintFramework/Libraries/ExtensionLibrary/Console/
+2026-04-24T19:25:03.898Z inflating: app/BlueprintFramework/Libraries/ExtensionLibrary/Console/BlueprintConsoleLibrary.php
+2026-04-24T19:25:03.898Z creating: app/BlueprintFramework/Extensions/
+2026-04-24T19:25:03.898Z extracting: app/BlueprintFramework/Extensions/.gitkeep
+2026-04-24T19:25:03.898Z creating: app/BlueprintFramework/Controllers/
+2026-04-24T19:25:03.898Z inflating: app/BlueprintFramework/Controllers/ExtensionConfigurationController.php
+2026-04-24T19:25:03.898Z inflating: app/BlueprintFramework/Controllers/ExtensionRouteController.php
+2026-04-24T19:25:03.899Z inflating: app/BlueprintFramework/GetExtensionSchedules.php
+2026-04-24T19:25:03.900Z inflating: app/Console/Kernel.php
+2026-04-24T19:25:03.901Z creating: app/Console/Commands/BlueprintFramework/
+2026-04-24T19:25:03.901Z creating: app/Console/Commands/BlueprintFramework/Version/
+2026-04-24T19:25:03.901Z inflating: app/Console/Commands/BlueprintFramework/Version/VersionCacheCommand.php
+2026-04-24T19:25:03.902Z inflating: app/Console/Commands/BlueprintFramework/Version/VersionLatestCommand.php
+2026-04-24T19:25:03.902Z creating: app/Console/Commands/BlueprintFramework/Extensions/
+2026-04-24T19:25:03.902Z extracting: app/Console/Commands/BlueprintFramework/Extensions/.gitkeep
+2026-04-24T19:25:03.902Z inflating: app/Console/Commands/BlueprintFramework/CacheCommand.php
+2026-04-24T19:25:03.902Z inflating: app/Console/Commands/BlueprintFramework/DeveloperCommand.php
+2026-04-24T19:25:03.902Z inflating: app/Console/Commands/BlueprintFramework/TelemetryCommand.php
+2026-04-24T19:25:03.902Z creating: app/Console/Commands/BlueprintFramework/Test/
+2026-04-24T19:25:03.903Z inflating: app/Console/Commands/BlueprintFramework/Test/StorageCommand.php
+2026-04-24T19:25:03.903Z creating: blueprint/
+2026-04-24T19:25:03.903Z creating: blueprint/dist/
+2026-04-24T19:25:03.903Z creating: blueprint/dist/types/
+2026-04-24T19:25:03.904Z extracting: blueprint/dist/types/.gitkeep
+2026-04-24T19:25:03.904Z creating: blueprint/extensions/
+2026-04-24T19:25:03.904Z creating: blueprint/extensions/blueprint/
+2026-04-24T19:25:03.904Z creating: blueprint/extensions/blueprint/private/
+2026-04-24T19:25:03.904Z creating: blueprint/extensions/blueprint/private/db/
+2026-04-24T19:25:03.904Z extracting: blueprint/extensions/blueprint/private/db/installed_extensions
+2026-04-24T19:25:03.904Z extracting: blueprint/extensions/blueprint/private/db/randomclassname
+2026-04-24T19:25:03.904Z extracting: blueprint/extensions/blueprint/private/db/database
+2026-04-24T19:25:03.905Z inflating: blueprint/extensions/blueprint/private/extensionfs.php
+2026-04-24T19:25:03.905Z creating: blueprint/extensions/blueprint/private/build/
+2026-04-24T19:25:03.905Z creating: blueprint/extensions/blueprint/private/build/extensions/
+2026-04-24T19:25:03.905Z inflating: blueprint/extensions/blueprint/private/build/extensions/admin.blade.php
+2026-04-24T19:25:03.905Z creating: blueprint/extensions/blueprint/private/build/extensions/routes/
+2026-04-24T19:25:03.905Z inflating: blueprint/extensions/blueprint/private/build/extensions/routes/serverRouteConstructor
+2026-04-24T19:25:03.906Z inflating: blueprint/extensions/blueprint/private/build/extensions/routes/accountRouteConstructor
+2026-04-24T19:25:03.906Z inflating: blueprint/extensions/blueprint/private/build/extensions/routes/importConstructor
+2026-04-24T19:25:03.906Z inflating: blueprint/extensions/blueprint/private/build/extensions/controller.build
+2026-04-24T19:25:03.906Z creating: blueprint/extensions/blueprint/private/build/extensions/config/
+2026-04-24T19:25:03.906Z inflating: blueprint/extensions/blueprint/private/build/extensions/config/ExtensionFS.build
+2026-04-24T19:25:03.907Z creating: blueprint/extensions/blueprint/private/build/extensions/console/
+2026-04-24T19:25:03.907Z extracting: blueprint/extensions/blueprint/private/build/extensions/console/ScheduleConstructor
+2026-04-24T19:25:03.907Z inflating: blueprint/extensions/blueprint/private/build/extensions/console/ArtisanCommandConstructor
+2026-04-24T19:25:03.907Z creating: blueprint/extensions/blueprint/private/build/templates/
+2026-04-24T19:25:03.908Z extracting: blueprint/extensions/blueprint/private/build/templates/.gitkeep
+2026-04-24T19:25:03.908Z creating: blueprint/extensions/blueprint/private/debug/
+2026-04-24T19:25:03.908Z extracting: blueprint/extensions/blueprint/private/debug/logs.txt
+2026-04-24T19:25:03.908Z creating: blueprint/extensions/blueprint/assets/
+2026-04-24T19:25:03.909Z inflating: blueprint/extensions/blueprint/assets/promo-blur.jpg
+2026-04-24T19:25:03.909Z inflating: blueprint/extensions/blueprint/assets/admin.extensions.css
+2026-04-24T19:25:03.909Z extracting: blueprint/extensions/blueprint/assets/logo.jpg
+2026-04-24T19:25:03.911Z inflating: blueprint/extensions/blueprint/assets/welcomebanner.jpeg
+2026-04-24T19:25:03.914Z inflating: blueprint/extensions/blueprint/assets/promo.png
+2026-04-24T19:25:03.914Z creating: blueprint/extensions/blueprint/assets/exports/
+2026-04-24T19:25:03.914Z extracting: blueprint/extensions/blueprint/assets/exports/.gitkeep
+2026-04-24T19:25:03.915Z inflating: blueprint/extensions/blueprint/assets/byte.png
+2026-04-24T19:25:03.915Z extracting: blueprint/extensions/blueprint/assets/favicon@30x30.png
+2026-04-24T19:25:03.915Z inflating: blueprint/extensions/blueprint/assets/blueprint.style.css
+2026-04-24T19:25:03.915Z creating: blueprint/extensions/blueprint/public/
+2026-04-24T19:25:03.916Z inflating: blueprint/extensions/blueprint/public/index.html
+2026-04-24T19:25:03.916Z creating: blueprint/tmp/
+2026-04-24T19:25:03.916Z extracting: blueprint/tmp/.gitkeep
+2026-04-24T19:25:03.916Z creating: blueprint/assets/
+2026-04-24T19:25:03.916Z inflating: blueprint/assets/LICENSE
+2026-04-24T19:25:03.916Z creating: blueprint/assets/Description/
+2026-04-24T19:25:03.928Z inflating: blueprint/assets/Description/description.png
+2026-04-24T19:25:03.928Z creating: blueprint/assets/Description/Gallery/
+2026-04-24T19:25:03.930Z inflating: blueprint/assets/Description/Gallery/2.jpg
+2026-04-24T19:25:03.932Z inflating: blueprint/assets/Description/Gallery/1.jpg
+2026-04-24T19:25:03.934Z inflating: blueprint/assets/Description/Gallery/3.jpg
+2026-04-24T19:25:03.934Z creating: blueprint/assets/Miscellaneous/
+2026-04-24T19:25:03.934Z extracting: blueprint/assets/Miscellaneous/text_dark.png
+2026-04-24T19:25:03.936Z inflating: blueprint/assets/Miscellaneous/cli.png
+2026-04-24T19:25:03.936Z extracting: blueprint/assets/Miscellaneous/text.png
+2026-04-24T19:25:03.936Z creating: blueprint/assets/Extensions/
+2026-04-24T19:25:03.936Z creating: blueprint/assets/Extensions/Defaults/
+2026-04-24T19:25:03.937Z inflating: blueprint/assets/Extensions/Defaults/2.jpg
+2026-04-24T19:25:03.938Z inflating: blueprint/assets/Extensions/Defaults/1.jpg
+2026-04-24T19:25:03.939Z inflating: blueprint/assets/Extensions/Defaults/3.jpg
+2026-04-24T19:25:03.939Z inflating: blueprint/assets/Extensions/Defaults/5.jpg
+2026-04-24T19:25:03.940Z inflating: blueprint/assets/Extensions/Defaults/4.jpg
+2026-04-24T19:25:03.940Z creating: blueprint/assets/Banners/
+2026-04-24T19:25:03.940Z creating: blueprint/assets/Banners/BuildPowerfulThemesAndExtensionsWithBlueprint/
+2026-04-24T19:25:03.942Z inflating: blueprint/assets/Banners/BuildPowerfulThemesAndExtensionsWithBlueprint/tiny.jpg
+2026-04-24T19:25:03.943Z inflating: blueprint/assets/Banners/BuildPowerfulThemesAndExtensionsWithBlueprint/small.jpg
+2026-04-24T19:25:03.944Z inflating: blueprint/assets/Banners/BuildPowerfulThemesAndExtensionsWithBlueprint/primary.jpg
+2026-04-24T19:25:03.944Z creating: blueprint/assets/Banners/Pride/
+2026-04-24T19:25:03.945Z inflating: blueprint/assets/Banners/Pride/emblem.jpg
+2026-04-24T19:25:03.945Z inflating: blueprint/assets/Banners/Pride/text2.jpg
+2026-04-24T19:25:03.946Z inflating: blueprint/assets/Banners/Pride/text.jpg
+2026-04-24T19:25:03.946Z inflating: blueprint/assets/Banners/Pride/text3.jpg
+2026-04-24T19:25:03.946Z creating: blueprint/assets/Banners/Generic/
+2026-04-24T19:25:03.947Z inflating: blueprint/assets/Banners/Generic/text4.jpg
+2026-04-24T19:25:03.948Z inflating: blueprint/assets/Banners/Generic/text2.jpg
+2026-04-24T19:25:03.948Z inflating: blueprint/assets/Banners/Generic/gradient.jpg
+2026-04-24T19:25:03.949Z inflating: blueprint/assets/Banners/Generic/text.jpg
+2026-04-24T19:25:03.951Z inflating: blueprint/assets/Banners/Generic/text3.jpg
+2026-04-24T19:25:03.951Z inflating: blueprint/assets/Banners/Generic/cover.jpg
+2026-04-24T19:25:03.951Z creating: blueprint/assets/Emblem/
+2026-04-24T19:25:03.952Z inflating: blueprint/assets/Emblem/emblem.jpg
+2026-04-24T19:25:03.952Z inflating: blueprint/assets/Emblem/alt.jpg
+2026-04-24T19:25:03.952Z creating: blueprint/assets/Emblem/Pride/
+2026-04-24T19:25:03.953Z inflating: blueprint/assets/Emblem/Pride/flag_round.png
+2026-04-24T19:25:03.954Z inflating: blueprint/assets/Emblem/Pride/flag.jpg
+2026-04-24T19:25:03.954Z inflating: blueprint/assets/Emblem/Pride/emblem2.jpg
+2026-04-24T19:25:03.955Z inflating: blueprint/assets/Emblem/Pride/emblem.jpg
+2026-04-24T19:25:03.955Z inflating: blueprint/assets/Emblem/Pride/transparent.png
+2026-04-24T19:25:03.955Z inflating: blueprint/assets/Emblem/transparent.png
+2026-04-24T19:25:03.956Z inflating: blueprint/assets/Emblem/red.jpg
+2026-04-24T19:25:03.956Z inflating: blueprint/assets/Emblem/emblem.svg
+2026-04-24T19:25:03.956Z creating: blueprint/assets/Badges/
+2026-04-24T19:25:03.956Z inflating: blueprint/assets/Badges/LICENSE
+2026-04-24T19:25:03.956Z inflating: blueprint/assets/Badges/wide.png
+2026-04-24T19:25:03.956Z creating: blueprint/assets/Badges/compact/
+2026-04-24T19:25:03.957Z inflating: blueprint/assets/Badges/compact/crosscompat.png
+2026-04-24T19:25:03.957Z extracting: blueprint/assets/Badges/compact/primary.png
+2026-04-24T19:25:03.957Z inflating: blueprint/assets/Badges/badge.png
+2026-04-24T19:25:03.958Z extracting: blueprint/assets/Badges/alt.png
+2026-04-24T19:25:03.958Z creating: blueprint/assets/Badges/designed-for-blueprint/
+2026-04-24T19:25:03.959Z inflating: blueprint/assets/Badges/designed-for-blueprint/crosscompat.png
+2026-04-24T19:25:03.960Z inflating: blueprint/assets/Badges/designed-for-blueprint/primary.png
+2026-04-24T19:25:03.960Z creating: blueprint/assets/Stickers/
+2026-04-24T19:25:03.960Z creating: blueprint/assets/Stickers/2024/
+2026-04-24T19:25:03.961Z inflating: blueprint/assets/Stickers/2024/holographic.png
+2026-04-24T19:25:03.961Z inflating: blueprint/assets/Stickers/2024/circular.png
+2026-04-24T19:25:03.962Z inflating: blueprint/assets/Stickers/2024/pride.png
+2026-04-24T19:25:03.963Z inflating: blueprint/assets/Stickers/2024/retro.png
+2026-04-24T19:25:03.964Z inflating: blueprint/assets/Stickers/2024/badge.png
+2026-04-24T19:25:03.964Z inflating: blueprint/assets/Stickers/2024/writedistribute.jpg
+2026-04-24T19:25:03.964Z inflating: blueprint/assets/Stickers/LICENSE
+2026-04-24T19:25:03.964Z creating: blueprint/assets/Stickers/2025/
+2026-04-24T19:25:03.966Z inflating: blueprint/assets/Stickers/2025/definition.jpg
+2026-04-24T19:25:03.966Z inflating: blueprint/assets/Stickers/2025/stripes.jpg
+2026-04-24T19:25:03.967Z inflating: blueprint/assets/Stickers/2025/pride.png
+2026-04-24T19:25:03.969Z inflating: blueprint/assets/Stickers/2025/kawaii_stickerversion.png
+2026-04-24T19:25:03.970Z inflating: blueprint/assets/Stickers/2025/box.png
+2026-04-24T19:25:03.970Z creating: blueprint/dev/
+2026-04-24T19:25:03.971Z extracting: blueprint/dev/.gitkeep
+2026-04-24T19:25:03.971Z inflating: blueprint.sh
+2026-04-24T19:25:03.976Z inflating: database/Seeders/BlueprintSeeder.php
+2026-04-24T19:25:03.976Z inflating: package.json
+2026-04-24T19:25:03.977Z creating: public/extensions/
+2026-04-24T19:25:03.977Z extracting: public/extensions/.gitkeep
+2026-04-24T19:25:03.977Z creating: public/fs/
+2026-04-24T19:25:03.977Z extracting: public/fs/.gitkeep
+2026-04-24T19:25:03.977Z creating: public/assets/extensions/
+2026-04-24T19:25:03.977Z extracting: public/assets/extensions/.gitkeep
+2026-04-24T19:25:03.978Z inflating: public/robots.txt
+2026-04-24T19:25:03.980Z inflating: resources/scripts/api/server/getServer.ts
+2026-04-24T19:25:03.981Z inflating: resources/scripts/routers/DashboardRouter.tsx
+2026-04-24T19:25:03.981Z inflating: resources/scripts/routers/ServerRouter.tsx
+2026-04-24T19:25:03.981Z creating: resources/scripts/blueprint/
+2026-04-24T19:25:03.981Z creating: resources/scripts/blueprint/extensions/
+2026-04-24T19:25:03.981Z extracting: resources/scripts/blueprint/extensions/.gitkeep
+2026-04-24T19:25:03.981Z creating: resources/scripts/blueprint/components/
+2026-04-24T19:25:03.981Z creating: resources/scripts/blueprint/components/Authentication/
+2026-04-24T19:25:03.981Z creating: resources/scripts/blueprint/components/Authentication/Container/
+2026-04-24T19:25:03.982Z inflating: resources/scripts/blueprint/components/Authentication/Container/BeforeContent.tsx
+2026-04-24T19:25:03.982Z inflating: resources/scripts/blueprint/components/Authentication/Container/AfterContent.tsx
+2026-04-24T19:25:03.982Z creating: resources/scripts/blueprint/components/Navigation/
+2026-04-24T19:25:03.982Z creating: resources/scripts/blueprint/components/Navigation/SubNavigation/
+2026-04-24T19:25:03.982Z inflating: resources/scripts/blueprint/components/Navigation/SubNavigation/AfterSubNavigation.tsx
+2026-04-24T19:25:03.982Z inflating: resources/scripts/blueprint/components/Navigation/SubNavigation/BeforeSubNavigation.tsx
+2026-04-24T19:25:03.982Z inflating: resources/scripts/blueprint/components/Navigation/SubNavigation/AdditionalServerItems.tsx
+2026-04-24T19:25:03.982Z inflating: resources/scripts/blueprint/components/Navigation/SubNavigation/AdditionalAccountItems.tsx
+2026-04-24T19:25:03.983Z creating: resources/scripts/blueprint/components/Navigation/NavigationBar/
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Navigation/NavigationBar/AdditionalItems.tsx
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Navigation/NavigationBar/AfterNavigation.tsx
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Navigation/NavigationBar/BeforeNavigation.tsx
+2026-04-24T19:25:03.983Z creating: resources/scripts/blueprint/components/Account/
+2026-04-24T19:25:03.983Z creating: resources/scripts/blueprint/components/Account/Overview/
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Account/Overview/BeforeContent.tsx
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Account/Overview/AfterContent.tsx
+2026-04-24T19:25:03.983Z creating: resources/scripts/blueprint/components/Account/SSH/
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Account/SSH/BeforeContent.tsx
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Account/SSH/AfterContent.tsx
+2026-04-24T19:25:03.983Z creating: resources/scripts/blueprint/components/Account/API/
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Account/API/BeforeContent.tsx
+2026-04-24T19:25:03.983Z inflating: resources/scripts/blueprint/components/Account/API/AfterContent.tsx
+2026-04-24T19:25:03.983Z creating: resources/scripts/blueprint/components/Dashboard/
+2026-04-24T19:25:03.984Z creating: resources/scripts/blueprint/components/Dashboard/Serverlist/
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/BeforeContent.tsx
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/AfterContent.tsx
+2026-04-24T19:25:03.984Z creating: resources/scripts/blueprint/components/Dashboard/Serverlist/ServerRow/
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/ServerRow/AfterEntryName.tsx
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/ServerRow/BeforeEntryName.tsx
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/ServerRow/ResourceLimits.tsx
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/ServerRow/AfterEntryDescription.tsx
+2026-04-24T19:25:03.984Z inflating: resources/scripts/blueprint/components/Dashboard/Serverlist/ServerRow/BeforeEntryDescription.tsx
+2026-04-24T19:25:03.985Z creating: resources/scripts/blueprint/components/Dashboard/Global/
+2026-04-24T19:25:03.985Z inflating: resources/scripts/blueprint/components/Dashboard/Global/AfterSection.tsx
+2026-04-24T19:25:03.985Z inflating: resources/scripts/blueprint/components/Dashboard/Global/BeforeSection.tsx
+2026-04-24T19:25:03.985Z creating: resources/scripts/blueprint/components/Server/
+2026-04-24T19:25:03.985Z creating: resources/scripts/blueprint/components/Server/Schedules/
+2026-04-24T19:25:03.985Z creating: resources/scripts/blueprint/components/Server/Schedules/Edit/
+2026-04-24T19:25:03.985Z inflating: resources/scripts/blueprint/components/Server/Schedules/Edit/BeforeEdit.tsx
+2026-04-24T19:25:03.985Z inflating: resources/scripts/blueprint/components/Server/Schedules/Edit/AfterEdit.tsx
+2026-04-24T19:25:03.985Z creating: resources/scripts/blueprint/components/Server/Schedules/List/
+2026-04-24T19:25:03.985Z inflating: resources/scripts/blueprint/components/Server/Schedules/List/BeforeContent.tsx
+2026-04-24T19:25:03.986Z inflating: resources/scripts/blueprint/components/Server/Schedules/List/AfterContent.tsx
+2026-04-24T19:25:03.986Z creating: resources/scripts/blueprint/components/Server/Startup/
+2026-04-24T19:25:03.986Z inflating: resources/scripts/blueprint/components/Server/Startup/BeforeContent.tsx
+2026-04-24T19:25:03.986Z inflating: resources/scripts/blueprint/components/Server/Startup/AfterContent.tsx
+2026-04-24T19:25:03.986Z creating: resources/scripts/blueprint/components/Server/Settings/
+2026-04-24T19:25:03.986Z inflating: resources/scripts/blueprint/components/Server/Settings/BeforeContent.tsx
+2026-04-24T19:25:03.986Z inflating: resources/scripts/blueprint/components/Server/Settings/AfterContent.tsx
+2026-04-24T19:25:03.986Z creating: resources/scripts/blueprint/components/Server/Files/
+2026-04-24T19:25:03.986Z creating: resources/scripts/blueprint/components/Server/Files/Edit/
+2026-04-24T19:25:03.987Z inflating: resources/scripts/blueprint/components/Server/Files/Edit/BeforeEdit.tsx
+2026-04-24T19:25:03.987Z inflating: resources/scripts/blueprint/components/Server/Files/Edit/AfterEdit.tsx
+2026-04-24T19:25:03.987Z creating: resources/scripts/blueprint/components/Server/Files/Browse/
+2026-04-24T19:25:03.987Z inflating: resources/scripts/blueprint/components/Server/Files/Browse/BeforeContent.tsx
+2026-04-24T19:25:03.987Z inflating: resources/scripts/blueprint/components/Server/Files/Browse/AfterContent.tsx
+2026-04-24T19:25:03.987Z inflating: resources/scripts/blueprint/components/Server/Files/Browse/DropdownItems.tsx
+2026-04-24T19:25:03.987Z inflating: resources/scripts/blueprint/components/Server/Files/Browse/FileButtons.tsx
+2026-04-24T19:25:03.987Z creating: resources/scripts/blueprint/components/Server/Network/
+2026-04-24T19:25:03.988Z inflating: resources/scripts/blueprint/components/Server/Network/BeforeContent.tsx
+2026-04-24T19:25:03.988Z inflating: resources/scripts/blueprint/components/Server/Network/AfterContent.tsx
+2026-04-24T19:25:03.988Z creating: resources/scripts/blueprint/components/Server/Databases/
+2026-04-24T19:25:03.988Z inflating: resources/scripts/blueprint/components/Server/Databases/BeforeContent.tsx
+2026-04-24T19:25:03.988Z inflating: resources/scripts/blueprint/components/Server/Databases/AfterContent.tsx
+2026-04-24T19:25:03.988Z creating: resources/scripts/blueprint/components/Server/Backups/
+2026-04-24T19:25:03.988Z inflating: resources/scripts/blueprint/components/Server/Backups/BeforeContent.tsx
+2026-04-24T19:25:03.988Z inflating: resources/scripts/blueprint/components/Server/Backups/AfterContent.tsx
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Backups/DropdownItems.tsx
+2026-04-24T19:25:03.989Z creating: resources/scripts/blueprint/components/Server/Users/
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Users/BeforeContent.tsx
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Users/AfterContent.tsx
+2026-04-24T19:25:03.989Z creating: resources/scripts/blueprint/components/Server/Terminal/
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Terminal/CommandRow.tsx
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Terminal/BeforeContent.tsx
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Terminal/AfterContent.tsx
+2026-04-24T19:25:03.989Z inflating: resources/scripts/blueprint/components/Server/Terminal/BeforeInformation.tsx
+2026-04-24T19:25:03.990Z inflating: resources/scripts/blueprint/components/Server/Terminal/AdditionalPowerButtons.tsx
+2026-04-24T19:25:03.990Z inflating: resources/scripts/blueprint/components/Server/Terminal/AfterInformation.tsx
+2026-04-24T19:25:03.990Z creating: resources/scripts/blueprint/css/
+2026-04-24T19:25:03.990Z creating: resources/scripts/blueprint/css/imported/
+2026-04-24T19:25:03.990Z extracting: resources/scripts/blueprint/css/imported/.gitkeep
+2026-04-24T19:25:03.990Z inflating: resources/scripts/blueprint/css/extensions.css
+2026-04-24T19:25:03.990Z creating: resources/scripts/blueprint/ui/
+2026-04-24T19:25:03.990Z inflating: resources/scripts/blueprint/ui/index.ts
+2026-04-24T19:25:03.990Z creating: resources/scripts/blueprint/ui/divider/
+2026-04-24T19:25:03.990Z inflating: resources/scripts/blueprint/ui/divider/index.ts
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/divider/UiDivider.tsx
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/divider/types.ts
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/README.md
+2026-04-24T19:25:03.991Z creating: resources/scripts/blueprint/ui/badge/
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/badge/styles.module.css
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/badge/index.ts
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/badge/UiBadge.tsx
+2026-04-24T19:25:03.991Z creating: resources/scripts/blueprint/ui/alert/
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/alert/index.ts
+2026-04-24T19:25:03.991Z inflating: resources/scripts/blueprint/ui/alert/UiAlert.tsx
+2026-04-24T19:25:03.991Z creating: resources/scripts/blueprint/extends/
+2026-04-24T19:25:03.992Z creating: resources/scripts/blueprint/extends/routers/
+2026-04-24T19:25:03.992Z inflating: resources/scripts/blueprint/extends/routers/routes.ts
+2026-04-24T19:25:03.992Z inflating: resources/scripts/blueprint/extends/routers/DashboardRouter.tsx
+2026-04-24T19:25:03.992Z inflating: resources/scripts/blueprint/extends/routers/ServerRouter.tsx
+2026-04-24T19:25:03.992Z inflating: resources/scripts/blueprint/extends/Attribution.tsx
+2026-04-24T19:25:03.995Z inflating: resources/scripts/components/dashboard/AccountOverviewContainer.tsx
+2026-04-24T19:25:03.995Z inflating: resources/scripts/components/dashboard/DashboardContainer.tsx
+2026-04-24T19:25:03.995Z inflating: resources/scripts/components/dashboard/ServerRow.tsx
+2026-04-24T19:25:03.995Z inflating: resources/scripts/components/dashboard/AccountApiContainer.tsx
+2026-04-24T19:25:03.996Z inflating: resources/scripts/components/dashboard/ssh/AccountSSHContainer.tsx
+2026-04-24T19:25:03.997Z inflating: resources/scripts/components/server/network/NetworkContainer.tsx
+2026-04-24T19:25:03.998Z inflating: resources/scripts/components/server/backups/BackupContainer.tsx
+2026-04-24T19:25:03.998Z inflating: resources/scripts/components/server/backups/BackupContextMenu.tsx
+2026-04-24T19:25:03.999Z inflating: resources/scripts/components/server/startup/StartupContainer.tsx
+2026-04-24T19:25:04.000Z inflating: resources/scripts/components/server/files/FileManagerContainer.tsx
+2026-04-24T19:25:04.000Z inflating: resources/scripts/components/server/files/FileDropdownMenu.tsx
+2026-04-24T19:25:04.001Z inflating: resources/scripts/components/server/files/FileEditContainer.tsx
+2026-04-24T19:25:04.002Z inflating: resources/scripts/components/server/schedules/ScheduleEditContainer.tsx
+2026-04-24T19:25:04.002Z inflating: resources/scripts/components/server/schedules/ScheduleContainer.tsx
+2026-04-24T19:25:04.003Z inflating: resources/scripts/components/server/settings/SettingsContainer.tsx
+2026-04-24T19:25:04.004Z inflating: resources/scripts/components/server/console/ServerDetailsBlock.tsx
+2026-04-24T19:25:04.004Z inflating: resources/scripts/components/server/console/Console.tsx
+2026-04-24T19:25:04.004Z inflating: resources/scripts/components/server/console/ServerConsoleContainer.tsx
+2026-04-24T19:25:04.005Z inflating: resources/scripts/components/server/console/PowerButtons.tsx
+2026-04-24T19:25:04.006Z inflating: resources/scripts/components/server/databases/DatabasesContainer.tsx
+2026-04-24T19:25:04.006Z inflating: resources/scripts/components/server/users/UsersContainer.tsx
+2026-04-24T19:25:04.007Z inflating: resources/scripts/components/auth/LoginFormContainer.tsx
+2026-04-24T19:25:04.008Z inflating: resources/scripts/components/elements/PageContentBlock.tsx
+2026-04-24T19:25:04.008Z inflating: resources/scripts/components/NavigationBar.tsx
+2026-04-24T19:25:04.008Z inflating: resources/scripts/index.tsx
+2026-04-24T19:25:04.009Z inflating: resources/scripts/state/settings.ts
+2026-04-24T19:25:04.011Z creating: resources/views/admin/extensions/
+2026-04-24T19:25:04.011Z extracting: resources/views/admin/extensions/.gitkeep
+2026-04-24T19:25:04.011Z inflating: resources/views/admin/extensions.blade.php
+2026-04-24T19:25:04.011Z creating: resources/views/blueprint/
+2026-04-24T19:25:04.011Z creating: resources/views/blueprint/dashboard/
+2026-04-24T19:25:04.011Z creating: resources/views/blueprint/dashboard/wrappers/
+2026-04-24T19:25:04.011Z extracting: resources/views/blueprint/dashboard/wrappers/.gitkeep
+2026-04-24T19:25:04.011Z inflating: resources/views/blueprint/dashboard/dashboard.blade.php
+2026-04-24T19:25:04.012Z creating: resources/views/blueprint/admin/
+2026-04-24T19:25:04.012Z inflating: resources/views/blueprint/admin/template.blade.php
+2026-04-24T19:25:04.012Z creating: resources/views/blueprint/admin/wrappers/
+2026-04-24T19:25:04.012Z extracting: resources/views/blueprint/admin/wrappers/.gitkeep
+2026-04-24T19:25:04.012Z inflating: resources/views/blueprint/admin/admin.blade.php
+2026-04-24T19:25:04.012Z inflating: resources/views/blueprint/admin/entry.blade.php
+2026-04-24T19:25:04.012Z inflating: resources/views/blueprint/admin/introduction.blade.php
+2026-04-24T19:25:04.012Z creating: resources/views/blueprint/extensions/
+2026-04-24T19:25:04.012Z extracting: resources/views/blueprint/extensions/.gitkeep
+2026-04-24T19:25:04.015Z inflating: resources/views/layouts/admin.blade.php
+2026-04-24T19:25:04.016Z inflating: resources/views/templates/wrapper.blade.php
+2026-04-24T19:25:04.017Z creating: routes/blueprint/
+2026-04-24T19:25:04.018Z creating: routes/blueprint/web/
+2026-04-24T19:25:04.018Z extracting: routes/blueprint/web/.gitkeep
+2026-04-24T19:25:04.018Z creating: routes/blueprint/application/
+2026-04-24T19:25:04.018Z extracting: routes/blueprint/application/.gitkeep
+2026-04-24T19:25:04.018Z creating: routes/blueprint/client/
+2026-04-24T19:25:04.018Z extracting: routes/blueprint/client/.gitkeep
+2026-04-24T19:25:04.018Z inflating: routes/blueprint/web.php
+2026-04-24T19:25:04.018Z inflating: routes/blueprint/client.php
+2026-04-24T19:25:04.018Z inflating: routes/blueprint/application.php
+2026-04-24T19:25:04.019Z inflating: routes/blueprint.php
+2026-04-24T19:25:04.019Z creating: scripts/
+2026-04-24T19:25:04.019Z creating: scripts/helpers/
+2026-04-24T19:25:04.019Z inflating: scripts/helpers/generate-types.js
+2026-04-24T19:25:04.019Z inflating: scripts/helpers/blueprint
+2026-04-24T19:25:04.019Z inflating: scripts/helpers/validate-identifier.js
+2026-04-24T19:25:04.019Z creating: scripts/commands/
+2026-04-24T19:25:04.019Z creating: scripts/commands/extensions/
+2026-04-24T19:25:04.020Z inflating: scripts/commands/extensions/install.sh
+2026-04-24T19:25:04.020Z inflating: scripts/commands/extensions/query.sh
+2026-04-24T19:25:04.020Z inflating: scripts/commands/extensions/remove.sh
+2026-04-24T19:25:04.020Z creating: scripts/commands/advanced/
+2026-04-24T19:25:04.021Z inflating: scripts/commands/advanced/upgrade.sh
+2026-04-24T19:25:04.021Z inflating: scripts/commands/advanced/rerun-install.sh
+2026-04-24T19:25:04.021Z creating: scripts/commands/developer/
+2026-04-24T19:25:04.021Z inflating: scripts/commands/developer/wipe.sh
+2026-04-24T19:25:04.021Z inflating: scripts/commands/developer/init.sh
+2026-04-24T19:25:04.021Z inflating: scripts/commands/developer/export.sh
+2026-04-24T19:25:04.021Z inflating: scripts/commands/developer/dist.sh
+2026-04-24T19:25:04.021Z inflating: scripts/commands/developer/build.sh
+2026-04-24T19:25:04.021Z inflating: scripts/commands/developer/watch.sh
+2026-04-24T19:25:04.021Z creating: scripts/commands/misc/
+2026-04-24T19:25:04.021Z extracting: scripts/commands/misc/version.sh
+2026-04-24T19:25:04.022Z inflating: scripts/commands/misc/help.sh
+2026-04-24T19:25:04.022Z inflating: scripts/commands/misc/info.sh
+2026-04-24T19:25:04.022Z inflating: scripts/commands/misc/debug.sh
+2026-04-24T19:25:04.022Z creating: scripts/updater/
+2026-04-24T19:25:04.022Z inflating: scripts/updater/update.sh
+2026-04-24T19:25:04.022Z creating: scripts/libraries/
+2026-04-24T19:25:04.022Z inflating: scripts/libraries/parse_yaml.sh
+2026-04-24T19:25:04.022Z inflating: scripts/libraries/grabenv.sh
+2026-04-24T19:25:04.022Z inflating: scripts/libraries/logFormat.sh
+2026-04-24T19:25:04.023Z inflating: scripts/libraries/misc.sh
+2026-04-24T19:25:04.023Z creating: storage/extensions/
+2026-04-24T19:25:04.023Z extracting: storage/extensions/.gitkeep
+2026-04-24T19:25:04.023Z creating: storage/.extensions/
+2026-04-24T19:25:04.023Z extracting: storage/.extensions/.gitkeep
+2026-04-24T19:25:04.023Z inflating: tsconfig.declarations.json
+2026-04-24T19:25:04.023Z inflating: tsconfig.json
+2026-04-24T19:25:04.023Z inflating: webpack.config.js
+2026-04-24T19:25:04.027Z inflating: yarn.lock
+2026-04-24T19:25:04.027Z inflating: .eslintrc.js
+2026-04-24T19:25:04.027Z extracting: .prettierignore
+2026-04-24T19:25:04.027Z inflating: .prettierrc.json
+2026-04-24T19:25:04.027Z inflating: .shellcheckrc
+2026-04-24T19:25:04.031Z Configurando Blueprint (.blueprintrc)...
+2026-04-24T19:25:04.032Z Instalando dependencias de Yarn para Blueprint...
+2026-04-24T19:25:04.263Z yarn install v1.22.22
+2026-04-24T19:25:04.376Z [1/5] Validating package.json...
+2026-04-24T19:25:04.380Z [2/5] Resolving packages...
+2026-04-24T19:25:05.034Z [3/5] Fetching packages...
+2026-04-24T19:25:23.785Z [4/5] Linking dependencies...
+2026-04-24T19:25:23.788Z warning " > @preact/signals-react@1.2.1" has incorrect peer dependency "react@17.x || 18.x".
+2026-04-24T19:25:23.791Z warning " > styled-components@5.2.1" has unmet peer dependency "react-is@>= 16.8.0".
+2026-04-24T19:25:23.791Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "@types/styled-components@^4.1.19".
+2026-04-24T19:25:23.791Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "styled-components@>= 1 <= 4".
+2026-04-24T19:25:23.792Z warning " > xterm-addon-search-bar@0.2.0" has incorrect peer dependency "xterm-addon-search@^0.5.0".
+2026-04-24T19:25:23.803Z warning " > redux-devtools-extension@2.13.8" has unmet peer dependency "redux@^3.1.0 || ^4.0.0".
+2026-04-24T19:25:41.440Z [5/5] Building fresh packages...
+2026-04-24T19:25:41.892Z Done in 37.64s.
+2026-04-24T19:25:41.936Z Ejecutando instalador de Blueprint...
+2026-04-24T19:25:41.951Z [2m19:25:41(B[m [34mINFO:(B[m Placing Blueprint command shortcut..(B[m
+2026-04-24T19:25:41.961Z [0m
+2026-04-24T19:25:41.961Z ██[31;43;1m▌[32;44;1m▌[0;37;1m▌[0m   Blueprint Framework
+2026-04-24T19:25:41.961Z ██  ██[31;43;1m▌[32;44;1m▌[0;37;1m▌[0m https://blueprint.zip
+2026-04-24T19:25:41.961Z ████[31;43;1m▌[32;44;1m▌[0;37;1m▌[0m © 2023-2026 Emma (prpl.wtf)
+2026-04-24T19:25:41.967Z [1A[1A[K
+2026-04-24T19:25:41.967Z [1A[K[2m19:25:41(B[m [34mINFO:(B[m Installing node modules..(B[m
+2026-04-24T19:25:41.969Z [K[34;1m[0;2m─────────────────────────────────────────────────────────────────────────── 0%[0m
+2026-04-24T19:25:42.190Z [1A[Kyarn install v1.22.22
+2026-04-24T19:25:42.290Z [1/5] Validating package.json...
+2026-04-24T19:25:42.294Z [2/5] Resolving packages...
+2026-04-24T19:25:42.923Z success Already up-to-date.
+2026-04-24T19:25:42.929Z Done in 0.75s.
+2026-04-24T19:25:42.956Z [1A[1A[K
+2026-04-24T19:25:42.956Z [1A[K[2m19:25:42(B[m [34mINFO:(B[m Searching and validating framework dependencies..(B[m
+2026-04-24T19:25:42.989Z [K[34;1m─────[0;2m────────────────────────────────────────────────────────────────────── 6%[0m
+2026-04-24T19:25:42.990Z [1A[1A[K
+2026-04-24T19:25:42.990Z [1A[K[2m19:25:42(B[m [33mWARNING:(B[m Blueprint variable customization is deprecated, autogenerating .blueprintrc file..(B[m
+2026-04-24T19:25:42.996Z [K[34;1m──────────[0;2m───────────────────────────────────────────────────────────────── 13%[0m
+2026-04-24T19:25:42.997Z [1A[1A[K
+2026-04-24T19:25:42.997Z [1A[K[2m19:25:42(B[m [33mWARNING:(B[m Could not autogenerate .blueprintrc file, already exists.(B[m
+2026-04-24T19:25:43.004Z [K[34;1m──────────[0;2m───────────────────────────────────────────────────────────────── 13%[0m
+2026-04-24T19:25:43.005Z [1A[1A[K
+2026-04-24T19:25:43.005Z [1A[K[2m19:25:43(B[m [34mINFO:(B[m Placing Blueprint command shortcut..(B[m
+2026-04-24T19:25:43.016Z [K[34;1m───────────────[0;2m──────────────────────────────────────────────────────────── 20%[0m
+2026-04-24T19:25:43.017Z [1A[1A[K
+2026-04-24T19:25:43.017Z [1A[K[2m19:25:43(B[m [34mINFO:(B[m Linking directories and filesystems..(B[m
+2026-04-24T19:25:43.207Z [K[34;1m────────────────────[0;2m─────────────────────────────────────────────────────── 26%[0m
+2026-04-24T19:25:43.208Z [1A[1A[K
+2026-04-24T19:25:43.208Z [1A[K[2m19:25:43(B[m [35mINPUT:(B[m Would you like to put your application into maintenance while Blueprint is installing? (Y/n)(B[m
+2026-04-24T19:25:43.209Z [K[34;1m──────────────────────────────[0;2m───────────────────────────────────────────── 40%[0m
+2026-04-24T19:25:43.214Z [1A[K
+2026-04-24T19:25:43.215Z [1A[1A[K
+2026-04-24T19:25:43.215Z [1A[K[2m19:25:43(B[m [34mINFO:(B[m Put application into maintenance mode.(B[m
+2026-04-24T19:25:43.382Z [K[34;1m──────────────────────────────[0;2m───────────────────────────────────────────── 40%[0m
+2026-04-24T19:25:43.383Z [1A[1A[K
+2026-04-24T19:25:43.383Z [1A[K[2m19:25:43(B[m [34mINFO:(B[m Seeding Blueprint database records..(B[m
+2026-04-24T19:25:43.552Z [K[34;1m────────────────────────────────────────[0;2m─────────────────────────────────── 53%[0m
+2026-04-24T19:25:43.553Z [1A[1A[K
+2026-04-24T19:25:43.553Z [1A[K[2m19:25:43(B[m [34mINFO:(B[m Flushing cache..(B[m
+2026-04-24T19:25:44.577Z [K[34;1m─────────────────────────────────────────────[0;2m────────────────────────────── 60%[0m
+2026-04-24T19:25:44.578Z [1A[1A[K
+2026-04-24T19:25:44.579Z [1A[K[2m19:25:44(B[m [34mINFO:(B[m Restarting queue workers..(B[m
+2026-04-24T19:25:44.764Z [K[34;1m──────────────────────────────────────────────────[0;2m───────────────────────── 66%[0m
+2026-04-24T19:25:44.765Z [1A[1A[K
+2026-04-24T19:25:44.765Z [1A[K[2m19:25:44(B[m [34mINFO:(B[m Changing Pterodactyl file ownership to 'nginx:nginx'..(B[m
+2026-04-24T19:26:02.479Z [K[34;1m───────────────────────────────────────────────────────[0;2m──────────────────── 73%[0m
+2026-04-24T19:26:02.481Z [1A[1A[K
+2026-04-24T19:26:02.481Z [1A[K[2m19:26:02(B[m [34mINFO:(B[m Cleaning up..(B[m
+2026-04-24T19:26:02.492Z [K[34;1m────────────────────────────────────────────────────────────[0;2m─────────────── 80%[0m
+2026-04-24T19:26:02.493Z [1A[1A[K
+2026-04-24T19:26:02.494Z [1A[K[2m19:26:02(B[m [34mINFO:(B[m Rebuilding panel assets..(B[m
+2026-04-24T19:26:02.497Z [K[34;1m─────────────────────────────────────────────────────────────────[0;2m────────── 86%[0m
+2026-04-24T19:26:02.705Z [1A[Kyarn run v1.22.22
+2026-04-24T19:26:02.742Z $ yarn run clean && cross-env NODE_ENV=production ./node_modules/.bin/webpack --mode production --progress
+2026-04-24T19:26:03.025Z $ cd public/assets && find . \( -name "*.js" -o -name "*.map" \) -type f -delete
+2026-04-24T19:26:03.892Z <s> [webpack.Progress] 0%
+2026-04-24T19:26:03.893Z <s> [webpack.Progress] 1% setup before run
+2026-04-24T19:26:03.893Z <s> [webpack.Progress] 1% setup before run NodeEnvironmentPlugin
+2026-04-24T19:26:03.893Z <s> [webpack.Progress] 1% setup before run
+2026-04-24T19:26:03.893Z <s> [webpack.Progress] 2% setup run
+2026-04-24T19:26:03.893Z <s> [webpack.Progress] 2% setup run webpack-cli
+2026-04-24T19:26:03.894Z <s> [webpack.Progress] 2% setup run
+2026-04-24T19:26:03.898Z <s> [webpack.Progress] 4% setup normal module factory
+2026-04-24T19:26:03.898Z <s> [webpack.Progress] 4% setup normal module factory
+2026-04-24T19:26:03.899Z <s> [webpack.Progress] 5% setup context module factory
+2026-04-24T19:26:03.899Z <s> [webpack.Progress] 5% setup context module factory
+2026-04-24T19:26:03.899Z <s> [webpack.Progress] 6% setup before compile
+2026-04-24T19:26:03.899Z <s> [webpack.Progress] 6% setup before compile ProgressPlugin
+2026-04-24T19:26:03.900Z <s> [webpack.Progress] 6% setup before compile
+2026-04-24T19:26:03.900Z <s> [webpack.Progress] 7% setup compile
+2026-04-24T19:26:03.900Z <s> [webpack.Progress] 7% setup compile ExternalsPlugin
+2026-04-24T19:26:03.900Z <s> [webpack.Progress] 7% setup compile ExternalsPlugin
+2026-04-24T19:26:03.901Z <s> [webpack.Progress] 7% setup compile
+2026-04-24T19:26:03.907Z <s> [webpack.Progress] 8% setup compilation
+2026-04-24T19:26:03.907Z <s> [webpack.Progress] 8% setup compilation BuildCachePlugin
+2026-04-24T19:26:03.907Z <s> [webpack.Progress] 8% setup compilation EnvironmentPlugin
+2026-04-24T19:26:03.907Z <s> [webpack.Progress] 8% setup compilation WebpackAssetsManifest
+2026-04-24T19:26:03.908Z <s> [webpack.Progress] 8% setup compilation ArrayPushCallbackChunkFormatPlugin
+2026-04-24T19:26:03.908Z <s> [webpack.Progress] 8% setup compilation JsonpChunkLoadingPlugin
+2026-04-24T19:26:03.908Z <s> [webpack.Progress] 8% setup compilation StartupChunkDependenciesPlugin
+2026-04-24T19:26:03.908Z <s> [webpack.Progress] 8% setup compilation ImportScriptsChunkLoadingPlugin
+2026-04-24T19:26:03.909Z <s> [webpack.Progress] 8% setup compilation WorkerPlugin
+2026-04-24T19:26:03.909Z <s> [webpack.Progress] 8% setup compilation SplitChunksPlugin
+2026-04-24T19:26:03.910Z <s> [webpack.Progress] 8% setup compilation ResolverCachePlugin
+2026-04-24T19:26:03.910Z <s> [webpack.Progress] 8% setup compilation
+2026-04-24T19:26:03.911Z <s> [webpack.Progress] 9% setup compilation
+2026-04-24T19:26:03.911Z <s> [webpack.Progress] 9% setup compilation ProgressPlugin
+2026-04-24T19:26:03.912Z <s> [webpack.Progress] 9% setup compilation DefinePlugin
+2026-04-24T19:26:03.916Z <s> [webpack.Progress] 9% setup compilation WebpackAssetsManifest
+2026-04-24T19:26:03.916Z <s> [webpack.Progress] 9% setup compilation ExternalsPlugin
+2026-04-24T19:26:03.916Z <s> [webpack.Progress] 9% setup compilation ExternalsPlugin
+2026-04-24T19:26:03.916Z <s> [webpack.Progress] 9% setup compilation ChunkPrefetchPreloadPlugin
+2026-04-24T19:26:03.916Z <s> [webpack.Progress] 9% setup compilation JavascriptModulesPlugin
+2026-04-24T19:26:03.917Z <s> [webpack.Progress] 9% setup compilation JsonModulesPlugin
+2026-04-24T19:26:03.917Z <s> [webpack.Progress] 9% setup compilation AssetModulesPlugin
+2026-04-24T19:26:03.917Z <s> [webpack.Progress] 9% setup compilation EntryPlugin
+2026-04-24T19:26:03.917Z <s> [webpack.Progress] 9% setup compilation EntryPlugin
+2026-04-24T19:26:03.917Z <s> [webpack.Progress] 9% setup compilation RuntimePlugin
+2026-04-24T19:26:03.918Z <s> [webpack.Progress] 9% setup compilation InferAsyncModulesPlugin
+2026-04-24T19:26:03.918Z <s> [webpack.Progress] 9% setup compilation DataUriPlugin
+2026-04-24T19:26:03.918Z <s> [webpack.Progress] 9% setup compilation FileUriPlugin
+2026-04-24T19:26:03.919Z <s> [webpack.Progress] 9% setup compilation CompatibilityPlugin
+2026-04-24T19:26:03.919Z <s> [webpack.Progress] 9% setup compilation HarmonyModulesPlugin
+2026-04-24T19:26:03.919Z <s> [webpack.Progress] 9% setup compilation AMDPlugin
+2026-04-24T19:26:03.920Z <s> [webpack.Progress] 9% setup compilation RequireJsStuffPlugin
+2026-04-24T19:26:03.920Z <s> [webpack.Progress] 9% setup compilation CommonJsPlugin
+2026-04-24T19:26:03.920Z <s> [webpack.Progress] 9% setup compilation LoaderPlugin
+2026-04-24T19:26:03.920Z <s> [webpack.Progress] 9% setup compilation LoaderPlugin
+2026-04-24T19:26:03.920Z <s> [webpack.Progress] 9% setup compilation NodeStuffPlugin
+2026-04-24T19:26:03.921Z <s> [webpack.Progress] 9% setup compilation APIPlugin
+2026-04-24T19:26:03.921Z <s> [webpack.Progress] 9% setup compilation ExportsInfoApiPlugin
+2026-04-24T19:26:03.921Z <s> [webpack.Progress] 9% setup compilation WebpackIsIncludedPlugin
+2026-04-24T19:26:03.922Z <s> [webpack.Progress] 9% setup compilation ConstPlugin
+2026-04-24T19:26:03.922Z <s> [webpack.Progress] 9% setup compilation UseStrictPlugin
+2026-04-24T19:26:03.922Z <s> [webpack.Progress] 9% setup compilation RequireIncludePlugin
+2026-04-24T19:26:03.922Z <s> [webpack.Progress] 9% setup compilation RequireEnsurePlugin
+2026-04-24T19:26:03.922Z <s> [webpack.Progress] 9% setup compilation RequireContextPlugin
+2026-04-24T19:26:03.923Z <s> [webpack.Progress] 9% setup compilation ImportPlugin
+2026-04-24T19:26:03.923Z <s> [webpack.Progress] 9% setup compilation ImportMetaContextPlugin
+2026-04-24T19:26:03.923Z <s> [webpack.Progress] 9% setup compilation SystemPlugin
+2026-04-24T19:26:03.923Z <s> [webpack.Progress] 9% setup compilation ImportMetaPlugin
+2026-04-24T19:26:03.923Z <s> [webpack.Progress] 9% setup compilation URLPlugin
+2026-04-24T19:26:03.923Z <s> [webpack.Progress] 9% setup compilation DefaultStatsFactoryPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation DefaultStatsPresetPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation DefaultStatsPrinterPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation JavascriptMetaInfoPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation EnsureChunkConditionsPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation RemoveEmptyChunksPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation MergeDuplicateChunksPlugin
+2026-04-24T19:26:03.924Z <s> [webpack.Progress] 9% setup compilation FlagIncludedChunksPlugin
+2026-04-24T19:26:03.925Z <s> [webpack.Progress] 9% setup compilation FlagDependencyExportsPlugin
+2026-04-24T19:26:03.925Z <s> [webpack.Progress] 9% setup compilation FlagDependencyUsagePlugin
+2026-04-24T19:26:03.925Z <s> [webpack.Progress] 9% setup compilation InnerGraphPlugin
+2026-04-24T19:26:03.926Z <s> [webpack.Progress] 9% setup compilation MangleExportsPlugin
+2026-04-24T19:26:03.926Z <s> [webpack.Progress] 9% setup compilation ModuleConcatenationPlugin
+2026-04-24T19:26:03.926Z <s> [webpack.Progress] 9% setup compilation NoEmitOnErrorsPlugin
+2026-04-24T19:26:03.926Z <s> [webpack.Progress] 9% setup compilation RealContentHashPlugin
+2026-04-24T19:26:03.927Z <s> [webpack.Progress] 9% setup compilation WasmFinalizeExportsPlugin
+2026-04-24T19:26:03.927Z <s> [webpack.Progress] 9% setup compilation DeterministicModuleIdsPlugin
+2026-04-24T19:26:03.927Z <s> [webpack.Progress] 9% setup compilation DeterministicChunkIdsPlugin
+2026-04-24T19:26:03.927Z <s> [webpack.Progress] 9% setup compilation DefinePlugin
+2026-04-24T19:26:03.927Z <s> [webpack.Progress] 9% setup compilation TerserPlugin
+2026-04-24T19:26:03.930Z <s> [webpack.Progress] 9% setup compilation TemplatedPathPlugin
+2026-04-24T19:26:03.930Z <s> [webpack.Progress] 9% setup compilation RecordIdsPlugin
+2026-04-24T19:26:03.930Z <s> [webpack.Progress] 9% setup compilation WarnCaseSensitiveModulesPlugin
+2026-04-24T19:26:03.930Z <s> [webpack.Progress] 9% setup compilation
+2026-04-24T19:26:03.931Z <s> [webpack.Progress] 10% building
+2026-04-24T19:26:03.931Z <s> [webpack.Progress] 10% building 0/1 entries 0/0 dependencies 0/0 modules
+2026-04-24T19:26:03.992Z <s> [webpack.Progress] 10% building import loader ./node_modules/babel-loader/lib/index.js
+2026-04-24T19:26:04.220Z <s> [webpack.Progress] 10% building 0/2 entries 1/2 dependencies 0/1 modules
+2026-04-24T19:26:04.236Z [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+2026-04-24T19:26:05.495Z <s> [webpack.Progress] 10% building 0/2 entries 2/2 dependencies 0/1 modules
+2026-04-24T19:26:05.496Z <s> [webpack.Progress] 10% building import loader ./node_modules/source-map-loader/dist/cjs.js
+2026-04-24T19:26:05.532Z <s> [webpack.Progress] 10% building 0/2 entries 2/2 dependencies 0/2 modules
+2026-04-24T19:26:05.728Z <s> [webpack.Progress] 10% building import loader ./node_modules/style-loader/dist/cjs.js
+2026-04-24T19:26:05.743Z <s> [webpack.Progress] 10% building import loader ./node_modules/css-loader/dist/cjs.js
+2026-04-24T19:26:05.822Z <s> [webpack.Progress] 10% building import loader ./node_modules/postcss-loader/dist/cjs.js
+2026-04-24T19:26:05.854Z <s> [webpack.Progress] 10% building 0/2 entries 13/17 dependencies 1/11 modules
+2026-04-24T19:26:06.392Z <s> [webpack.Progress] 10% building 0/2 entries 14/20 dependencies 1/12 modules
+2026-04-24T19:26:06.937Z <s> [webpack.Progress] 10% building 0/2 entries 62/105 dependencies 4/45 modules
+2026-04-24T19:26:07.217Z <s> [webpack.Progress] 37% building 1/2 entries 80/154 dependencies 14/51 modules
+2026-04-24T19:26:07.737Z <s> [webpack.Progress] 37% building 1/2 entries 197/237 dependencies 44/104 modules
+2026-04-24T19:26:08.466Z <s> [webpack.Progress] 37% building 1/2 entries 240/300 dependencies 62/126 modules
+2026-04-24T19:26:08.469Z <s> [webpack.Progress] 37% building import loader ./node_modules/svg-url-loader/index.js
+2026-04-24T19:26:08.469Z <s> [webpack.Progress] 37% building 1/2 entries 249/311 dependencies 66/126 modules
+2026-04-24T19:26:08.989Z <s> [webpack.Progress] 37% building 1/2 entries 407/465 dependencies 100/162 modules
+2026-04-24T19:26:10.152Z <s> [webpack.Progress] 37% building 1/2 entries 496/547 dependencies 121/200 modules
+2026-04-24T19:26:11.445Z <s> [webpack.Progress] 37% building 1/2 entries 549/600 dependencies 129/233 modules
+2026-04-24T19:26:11.978Z <s> [webpack.Progress] 37% building 1/2 entries 900/946 dependencies 219/399 modules
+2026-04-24T19:26:12.653Z <s> [webpack.Progress] 37% building 1/2 entries 1247/1300 dependencies 297/539 modules
+2026-04-24T19:26:13.316Z <s> [webpack.Progress] 37% building 1/2 entries 1675/1800 dependencies 467/688 modules
+2026-04-24T19:26:13.828Z <s> [webpack.Progress] 37% building 1/2 entries 2401/2500 dependencies 577/1040 modules
+2026-04-24T19:26:15.227Z <s> [webpack.Progress] 37% building 1/2 entries 2842/2900 dependencies 581/1051 modules
+2026-04-24T19:26:15.737Z <s> [webpack.Progress] 37% building 1/2 entries 3500/3558 dependencies 969/1391 modules
+2026-04-24T19:26:16.552Z <s> [webpack.Progress] 37% building 1/2 entries 3669/3700 dependencies 1125/1423 modules
+2026-04-24T19:26:17.941Z <s> [webpack.Progress] 37% building 1/2 entries 3759/3800 dependencies 1208/1428 modules
+2026-04-24T19:26:18.477Z <s> [webpack.Progress] 37% building 1/2 entries 4253/4324 dependencies 1280/1500 modules
+2026-04-24T19:26:19.489Z <s> [webpack.Progress] 37% building 1/2 entries 4341/4400 dependencies 1282/1575 modules
+2026-04-24T19:26:20.143Z <s> [webpack.Progress] 37% building 1/2 entries 4613/4700 dependencies 1400/1579 modules
+2026-04-24T19:26:20.740Z <s> [webpack.Progress] 37% building 1/2 entries 4990/5033 dependencies 1500/1844 modules
+2026-04-24T19:26:21.459Z <s> [webpack.Progress] 37% building 1/2 entries 5303/5400 dependencies 1739/1860 modules
+2026-04-24T19:26:22.396Z <s> [webpack.Progress] 37% building 1/2 entries 5657/5658 dependencies 1900/1921 modules
+2026-04-24T19:26:22.436Z <s> [webpack.Progress] 64% building 2/2 entries 5659/5659 dependencies 1921/1921 modules
+2026-04-24T19:26:22.436Z <s> [webpack.Progress] 65% building
+2026-04-24T19:26:22.437Z <s> [webpack.Progress] 69% building finish
+2026-04-24T19:26:22.437Z <s> [webpack.Progress] 69% building finish
+2026-04-24T19:26:22.438Z <s> [webpack.Progress] 70% sealing finish module graph
+2026-04-24T19:26:22.438Z <s> [webpack.Progress] 70% sealing finish module graph ResolverCachePlugin
+2026-04-24T19:26:22.438Z <s> [webpack.Progress] 70% sealing finish module graph InferAsyncModulesPlugin
+2026-04-24T19:26:22.439Z <s> [webpack.Progress] 70% sealing finish module graph FlagDependencyExportsPlugin
+2026-04-24T19:26:22.503Z <s> [webpack.Progress] 70% sealing finish module graph InnerGraphPlugin
+2026-04-24T19:26:22.503Z <s> [webpack.Progress] 70% sealing finish module graph WasmFinalizeExportsPlugin
+2026-04-24T19:26:22.503Z <s> [webpack.Progress] 70% sealing finish module graph
+2026-04-24T19:26:22.540Z <s> [webpack.Progress] 70% sealing plugins
+2026-04-24T19:26:22.540Z <s> [webpack.Progress] 70% sealing plugins WarnCaseSensitiveModulesPlugin
+2026-04-24T19:26:22.542Z <s> [webpack.Progress] 70% sealing plugins
+2026-04-24T19:26:22.543Z <s> [webpack.Progress] 71% sealing dependencies optimization
+2026-04-24T19:26:22.543Z <s> [webpack.Progress] 71% sealing dependencies optimization FlagDependencyUsagePlugin
+2026-04-24T19:26:22.625Z <s> [webpack.Progress] 71% sealing dependencies optimization
+2026-04-24T19:26:22.625Z <s> [webpack.Progress] 71% sealing after dependencies optimization
+2026-04-24T19:26:22.625Z <s> [webpack.Progress] 71% sealing after dependencies optimization
+2026-04-24T19:26:22.625Z <s> [webpack.Progress] 72% sealing chunk graph
+2026-04-24T19:26:22.625Z <s> [webpack.Progress] 72% sealing chunk graph
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 73% sealing after chunk graph
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 73% sealing after chunk graph
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 73% sealing optimizing
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 73% sealing optimizing
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 74% sealing module optimization
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 74% sealing module optimization
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 75% sealing after module optimization
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 75% sealing after module optimization
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 75% sealing chunk optimization
+2026-04-24T19:26:22.713Z <s> [webpack.Progress] 75% sealing chunk optimization EnsureChunkConditionsPlugin
+2026-04-24T19:26:22.714Z <s> [webpack.Progress] 75% sealing chunk optimization RemoveEmptyChunksPlugin
+2026-04-24T19:26:22.714Z <s> [webpack.Progress] 75% sealing chunk optimization MergeDuplicateChunksPlugin
+2026-04-24T19:26:22.714Z <s> [webpack.Progress] 75% sealing chunk optimization SplitChunksPlugin
+2026-04-24T19:26:22.773Z <s> [webpack.Progress] 75% sealing chunk optimization RemoveEmptyChunksPlugin
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 75% sealing chunk optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 76% sealing after chunk optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 76% sealing after chunk optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 77% sealing module and chunk tree optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 77% sealing module and chunk tree optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 77% sealing after module and chunk tree optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 77% sealing after module and chunk tree optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 78% sealing chunk modules optimization
+2026-04-24T19:26:22.774Z <s> [webpack.Progress] 78% sealing chunk modules optimization ModuleConcatenationPlugin
+2026-04-24T19:26:22.901Z <s> [webpack.Progress] 78% sealing chunk modules optimization
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 78% sealing after chunk modules optimization
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 78% sealing after chunk modules optimization
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 79% sealing module reviving
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 79% sealing module reviving RecordIdsPlugin
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 79% sealing module reviving
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 80% sealing before module ids
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 80% sealing before module ids
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 80% sealing module ids
+2026-04-24T19:26:22.902Z <s> [webpack.Progress] 80% sealing module ids DeterministicModuleIdsPlugin
+2026-04-24T19:26:22.909Z <s> [webpack.Progress] 80% sealing module ids
+2026-04-24T19:26:22.909Z <s> [webpack.Progress] 81% sealing module id optimization
+2026-04-24T19:26:22.909Z <s> [webpack.Progress] 81% sealing module id optimization
+2026-04-24T19:26:22.909Z <s> [webpack.Progress] 82% sealing module id optimization
+2026-04-24T19:26:22.909Z <s> [webpack.Progress] 82% sealing module id optimization
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 82% sealing chunk reviving
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 82% sealing chunk reviving RecordIdsPlugin
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 82% sealing chunk reviving
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 83% sealing before chunk ids
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 83% sealing before chunk ids
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 84% sealing chunk ids
+2026-04-24T19:26:22.910Z <s> [webpack.Progress] 84% sealing chunk ids DeterministicChunkIdsPlugin
+2026-04-24T19:26:22.917Z <s> [webpack.Progress] 84% sealing chunk ids
+2026-04-24T19:26:22.918Z <s> [webpack.Progress] 84% sealing chunk id optimization
+2026-04-24T19:26:22.918Z <s> [webpack.Progress] 84% sealing chunk id optimization FlagIncludedChunksPlugin
+2026-04-24T19:26:22.920Z <s> [webpack.Progress] 84% sealing chunk id optimization
+2026-04-24T19:26:22.920Z <s> [webpack.Progress] 85% sealing after chunk id optimization
+2026-04-24T19:26:22.920Z <s> [webpack.Progress] 85% sealing after chunk id optimization
+2026-04-24T19:26:22.921Z <s> [webpack.Progress] 86% sealing record modules
+2026-04-24T19:26:22.921Z <s> [webpack.Progress] 86% sealing record modules RecordIdsPlugin
+2026-04-24T19:26:22.922Z <s> [webpack.Progress] 86% sealing record modules
+2026-04-24T19:26:22.922Z <s> [webpack.Progress] 86% sealing record chunks
+2026-04-24T19:26:22.922Z <s> [webpack.Progress] 86% sealing record chunks RecordIdsPlugin
+2026-04-24T19:26:22.923Z <s> [webpack.Progress] 86% sealing record chunks
+2026-04-24T19:26:22.941Z <s> [webpack.Progress] 87% sealing module hashing
+2026-04-24T19:26:22.941Z <s> [webpack.Progress] 87% sealing module hashing
+2026-04-24T19:26:23.071Z <s> [webpack.Progress] 87% sealing code generation
+2026-04-24T19:26:23.071Z <s> [webpack.Progress] 87% sealing code generation
+2026-04-24T19:26:24.793Z <s> [webpack.Progress] 88% sealing runtime requirements
+2026-04-24T19:26:24.793Z <s> [webpack.Progress] 88% sealing runtime requirements
+2026-04-24T19:26:24.802Z <s> [webpack.Progress] 89% sealing hashing
+2026-04-24T19:26:24.802Z <s> [webpack.Progress] 89% sealing hashing
+2026-04-24T19:26:24.813Z <s> [webpack.Progress] 89% sealing after hashing
+2026-04-24T19:26:24.813Z <s> [webpack.Progress] 89% sealing after hashing
+2026-04-24T19:26:24.814Z <s> [webpack.Progress] 90% sealing record hash
+2026-04-24T19:26:24.814Z <s> [webpack.Progress] 90% sealing record hash
+2026-04-24T19:26:24.814Z <s> [webpack.Progress] 91% sealing module assets processing
+2026-04-24T19:26:24.814Z <s> [webpack.Progress] 91% sealing module assets processing
+2026-04-24T19:26:24.814Z <s> [webpack.Progress] 91% sealing chunk assets processing
+2026-04-24T19:26:24.814Z <s> [webpack.Progress] 91% sealing chunk assets processing
+2026-04-24T19:26:24.828Z <s> [webpack.Progress] 92% sealing asset processing
+2026-04-24T19:26:24.828Z <s> [webpack.Progress] 92% sealing asset processing TerserPlugin
+2026-04-24T19:26:38.920Z <s> [webpack.Progress] 92% sealing asset processing RealContentHashPlugin
+2026-04-24T19:26:38.930Z <s> [webpack.Progress] 92% sealing asset processing WebpackAssetsManifest
+2026-04-24T19:26:38.958Z <s> [webpack.Progress] 92% sealing asset processing WebpackAssetsManifest
+2026-04-24T19:26:38.959Z <s> [webpack.Progress] 92% sealing asset processing WebpackAssetsManifest
+2026-04-24T19:26:38.980Z <s> [webpack.Progress] 92% sealing asset processing
+2026-04-24T19:26:38.980Z <s> [webpack.Progress] 93% sealing after asset optimization
+2026-04-24T19:26:38.980Z <s> [webpack.Progress] 93% sealing after asset optimization
+2026-04-24T19:26:38.992Z <s> [webpack.Progress] 93% sealing recording
+2026-04-24T19:26:38.992Z <s> [webpack.Progress] 93% sealing recording
+2026-04-24T19:26:38.992Z <s> [webpack.Progress] 94% sealing after seal
+2026-04-24T19:26:38.992Z <s> [webpack.Progress] 94% sealing after seal
+2026-04-24T19:26:38.995Z <s> [webpack.Progress] 95% emitting emit
+2026-04-24T19:26:38.995Z <s> [webpack.Progress] 95% emitting emit
+2026-04-24T19:26:39.011Z <s> [webpack.Progress] 98% emitting after emit
+2026-04-24T19:26:39.011Z <s> [webpack.Progress] 98% emitting after emit BuildCachePlugin
+2026-04-24T19:26:39.013Z <s> [webpack.Progress] 98% emitting after emit WebpackAssetsManifest
+2026-04-24T19:26:39.017Z <s> [webpack.Progress] 98% emitting after emit SizeLimitsPlugin
+2026-04-24T19:26:39.018Z <s> [webpack.Progress] 98% emitting after emit
+2026-04-24T19:26:39.018Z <s> [webpack.Progress] 99% done plugins
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99% done plugins WebpackAssetsManifest
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99% done plugins
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99%
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99% cache store build dependencies
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99% cache store build dependencies
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99% cache begin idle
+2026-04-24T19:26:39.019Z <s> [webpack.Progress] 99% cache begin idle
+2026-04-24T19:26:39.020Z <s> [webpack.Progress] 100%
+2026-04-24T19:26:39.020Z <s> [webpack.Progress] 99% cache shutdown
+2026-04-24T19:26:39.020Z <s> [webpack.Progress] 99% cache shutdown MemoryCachePlugin
+2026-04-24T19:26:39.020Z <s> [webpack.Progress] 99% cache shutdown
+2026-04-24T19:26:39.020Z <s> [webpack.Progress] 100%
+2026-04-24T19:26:39.238Z 18 assets
+2026-04-24T19:26:39.238Z 1933 modules
+2026-04-24T19:26:39.238Z webpack 5.103.0 compiled successfully in 35128 ms
+2026-04-24T19:26:39.337Z Done in 36.64s.
+2026-04-24T19:26:39.361Z [1A[1A[K
+2026-04-24T19:26:39.361Z [1A[K[2m19:26:39(B[m [34mINFO:(B[m Put application into production.(B[m
+2026-04-24T19:26:39.547Z [K[34;1m──────────────────────────────────────────────────────────────────────[0;2m───── 93%[0m
+2026-04-24T19:26:39.548Z [1A[1A[K
+2026-04-24T19:26:39.548Z [1A[K[2m19:26:39(B[m [32mSUCCESS:(B[m Blueprint has completed its installation process.(B[m
+2026-04-24T19:26:39.550Z [K[34;1m───────────────────────────────────────────────────────────────────────────[0;2m 100%[0m
+2026-04-24T19:26:39.551Z [1A[KEstableciendo permisos correctos...
+2026-04-24T19:26:39.558Z ✨ Instalación de Blueprint completada exitosamente!
+2026-04-24T19:26:39.792Z INFO  Clearing cached bootstrap files.
+2026-04-24T19:26:39.814Z cache .......................................................... 2.26ms DONE
+2026-04-24T19:26:39.833Z compiled ....................................................... 0.66ms DONE
+2026-04-24T19:26:39.852Z config ......................................................... 0.49ms DONE
+2026-04-24T19:26:39.872Z events ......................................................... 0.49ms DONE
+2026-04-24T19:26:39.892Z routes ......................................................... 0.51ms DONE
+2026-04-24T19:26:39.912Z views .......................................................... 0.97ms DONE
+2026-04-24T19:26:40.226Z INFO  Compiled views cleared successfully.
+2026-04-24T19:26:40.466Z INFO  Configuration cache cleared successfully.
+2026-04-24T19:26:40.714Z ⚠️ Namespace blueprint no disponible en Artisan; Blueprint ya fue instalado por blueprint.sh.
+2026-04-24T19:26:40.714Z Ejecutando instalador de Arix Theme y Addons...
+2026-04-24T19:26:40.715Z 🚀 Iniciando proceso de instalación/configuración de Arix Theme y Addon Pack...
+2026-04-24T19:26:40.716Z 🧹 Limpiando caché previa de Laravel...
+2026-04-24T19:26:40.938Z INFO  Route cache cleared successfully.
+2026-04-24T19:26:41.174Z INFO  Compiled views cleared successfully.
+2026-04-24T19:26:41.410Z INFO  Configuration cache cleared successfully.
+2026-04-24T19:26:41.655Z INFO  Application cache cleared successfully.
+2026-04-24T19:26:41.806Z Generating optimized autoload files
+2026-04-24T19:26:43.810Z Generated optimized autoload files containing 7352 classes
+2026-04-24T19:26:43.819Z 📦 Verificando dependencias JS críticas para compilar Arix/Addons...
+2026-04-24T19:26:43.878Z 📦 Instalando dependencias faltantes: xterm-addon-unicode11 redux react-icons markdown-to-jsx @dnd-kit/core @dnd-kit/sortable @dnd-kit/utilities
+2026-04-24T19:26:44.079Z yarn add v1.22.22
+2026-04-24T19:26:44.218Z [1/4] Resolving packages...
+2026-04-24T19:26:45.269Z warning xterm-addon-unicode11@0.6.0: This package is now deprecated. Move to @xterm/addon-unicode11 instead.
+2026-04-24T19:26:46.455Z [2/4] Fetching packages...
+2026-04-24T19:26:48.355Z [3/4] Linking dependencies...
+2026-04-24T19:26:48.360Z warning " > @preact/signals-react@1.2.1" has incorrect peer dependency "react@17.x || 18.x".
+2026-04-24T19:26:48.363Z warning " > styled-components@5.2.1" has unmet peer dependency "react-is@>= 16.8.0".
+2026-04-24T19:26:48.363Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "@types/styled-components@^4.1.19".
+2026-04-24T19:26:48.363Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "styled-components@>= 1 <= 4".
+2026-04-24T19:26:48.364Z warning " > xterm-addon-search-bar@0.2.0" has incorrect peer dependency "xterm-addon-search@^0.5.0".
+2026-04-24T19:26:48.377Z warning " > redux-devtools-extension@2.13.8" has incorrect peer dependency "redux@^3.1.0 || ^4.0.0".
+2026-04-24T19:26:48.380Z warning " > xterm-addon-unicode11@0.6.0" has incorrect peer dependency "xterm@^5.0.0".
+2026-04-24T19:26:53.376Z [4/4] Building fresh packages...
+2026-04-24T19:26:53.482Z success Saved lockfile.
+2026-04-24T19:26:53.625Z success Saved 8 new dependencies.
+2026-04-24T19:26:53.625Z info Direct dependencies
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/core@6.3.1
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/sortable@10.0.0
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/utilities@3.2.2
+2026-04-24T19:26:53.626Z ├─ markdown-to-jsx@9.7.16
+2026-04-24T19:26:53.626Z ├─ react-icons@5.6.0
+2026-04-24T19:26:53.626Z ├─ redux@5.0.1
+2026-04-24T19:26:53.626Z └─ xterm-addon-unicode11@0.6.0
+2026-04-24T19:26:53.626Z info All dependencies
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/accessibility@3.1.1
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/core@6.3.1
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/sortable@10.0.0
+2026-04-24T19:26:53.626Z ├─ @dnd-kit/utilities@3.2.2
+2026-04-24T19:26:53.626Z ├─ markdown-to-jsx@9.7.16
+2026-04-24T19:26:53.626Z ├─ react-icons@5.6.0
+2026-04-24T19:26:53.626Z ├─ redux@5.0.1
+2026-04-24T19:26:53.626Z └─ xterm-addon-unicode11@0.6.0
+2026-04-24T19:26:53.631Z Done in 9.56s.
+2026-04-24T19:26:54.530Z ✅ Arix Theme: licencia validada.
+2026-04-24T19:26:54.530Z 🎨 Ejecutando instalación de Arix Theme...
+2026-04-24T19:26:54.767Z Are all the required dependencies installed from the readme file? (yes/no) [yes]:
+2026-04-24T19:26:54.767Z >
+2026-04-24T19:26:54.995Z Select a version::
+2026-04-24T19:26:54.996Z [0] ./arix/v2.0.7
+2026-04-24T19:26:54.997Z >
+2026-04-24T19:26:54.997Z Installing Arix Theme v2.0.7...
+2026-04-24T19:26:55.206Z Proceeding with the installation...
+2026-04-24T19:26:55.206Z Migrating database...
+2026-04-24T19:26:55.447Z Installing required packages...
+2026-04-24T19:26:55.447Z This can take a minute...
+2026-04-24T19:27:00.079Z warning " > @preact/signals-react@1.2.1" has incorrect peer dependency "react@17.x || 18.x".
+2026-04-24T19:27:00.081Z warning " > styled-components@5.2.1" has unmet peer dependency "react-is@>= 16.8.0".
+2026-04-24T19:27:00.081Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "@types/styled-components@^4.1.19".
+2026-04-24T19:27:00.081Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "styled-components@>= 1 <= 4".
+2026-04-24T19:27:00.082Z warning " > xterm-addon-search-bar@0.2.0" has incorrect peer dependency "xterm-addon-search@^0.5.0".
+2026-04-24T19:27:00.082Z warning " > xterm-addon-unicode11@0.6.0" has incorrect peer dependency "xterm@^5.0.0".
+2026-04-24T19:27:00.094Z warning " > redux-devtools-extension@2.13.8" has incorrect peer dependency "redux@^3.1.0 || ^4.0.0".
+2026-04-24T19:27:00.097Z warning " > react-turnstile@1.1.5" has incorrect peer dependency "react-dom@>= 16.13.1".
+2026-04-24T19:27:17.816Z Compile translations...
+2026-04-24T19:27:18.055Z Building panel assets...
+2026-04-24T19:27:18.055Z This can take a minute...
+2026-04-24T19:27:18.066Z Node.js version is v20 (>= 17)
+2026-04-24T19:27:19.690Z [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+2026-04-24T19:28:07.342Z Set permissions...
+2026-04-24T19:28:09.916Z chown: unknown user/group apache:apache
+2026-04-24T19:28:09.917Z Optimize application...
+2026-04-24T19:28:10.954Z ╭───────────────────────────────╮
+2026-04-24T19:28:10.954Z │                               │
+2026-04-24T19:28:10.954Z │    ╭─╴ Theme installed  ╶─╮   │
+2026-04-24T19:28:10.954Z │    ╰─╴   successfully   ╶─╯   │
+2026-04-24T19:28:10.954Z │                               │
+2026-04-24T19:28:10.954Z ╰───────────────────────────────╯
+2026-04-24T19:28:11.193Z INFO  Clearing cached bootstrap files.
+2026-04-24T19:28:11.216Z cache .......................................................... 2.58ms DONE
+2026-04-24T19:28:11.235Z compiled ....................................................... 0.63ms DONE
+2026-04-24T19:28:11.255Z config ......................................................... 0.57ms DONE
+2026-04-24T19:28:11.275Z events ......................................................... 0.58ms DONE
+2026-04-24T19:28:11.295Z routes ......................................................... 0.67ms DONE
+2026-04-24T19:28:11.319Z views .......................................................... 3.28ms DONE
+2026-04-24T19:28:11.461Z Generating optimized autoload files
+2026-04-24T19:28:13.461Z Generated optimized autoload files containing 7383 classes
+2026-04-24T19:28:13.886Z ✅ Arix Addons: licencia validada.
+2026-04-24T19:28:13.886Z 📦 Ejecutando instalación de Arix Addon Pack...
+2026-04-24T19:28:14.240Z Are all the required dependencies installed from the readme file? (yes/no) [yes]:
+2026-04-24T19:28:14.240Z >
+2026-04-24T19:28:14.240Z Verifying license key...
+2026-04-24T19:28:14.404Z Select a version::
+2026-04-24T19:28:14.405Z [0] ./addons/v1.3.6
+2026-04-24T19:28:14.406Z >
+2026-04-24T19:28:14.406Z Installing Addon Pack v1.3.6...
+2026-04-24T19:28:14.483Z Proceeding with the installation...
+2026-04-24T19:28:14.483Z Migrating database...
+2026-04-24T19:28:14.733Z Installing required packages...
+2026-04-24T19:28:14.734Z This can take a minute...
+2026-04-24T19:28:16.817Z warning " > @preact/signals-react@1.2.1" has incorrect peer dependency "react@17.x || 18.x".
+2026-04-24T19:28:16.820Z warning " > react-turnstile@1.1.5" has incorrect peer dependency "react-dom@>= 16.13.1".
+2026-04-24T19:28:16.820Z warning " > styled-components@5.2.1" has unmet peer dependency "react-is@>= 16.8.0".
+2026-04-24T19:28:16.820Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "@types/styled-components@^4.1.19".
+2026-04-24T19:28:16.820Z warning " > styled-components-breakpoint@3.0.0-preview.20" has incorrect peer dependency "styled-components@>= 1 <= 4".
+2026-04-24T19:28:16.821Z warning " > xterm-addon-search-bar@0.2.0" has incorrect peer dependency "xterm-addon-search@^0.5.0".
+2026-04-24T19:28:16.821Z warning " > xterm-addon-unicode11@0.6.0" has incorrect peer dependency "xterm@^5.0.0".
+2026-04-24T19:28:16.833Z warning " > redux-devtools-extension@2.13.8" has incorrect peer dependency "redux@^3.1.0 || ^4.0.0".
+2026-04-24T19:28:21.201Z Compiling languages...
+2026-04-24T19:28:21.432Z Building panel assets...
+2026-04-24T19:28:21.432Z This can take a minute...
+2026-04-24T19:28:21.442Z Node.js version is v20 (>= 17)
+2026-04-24T19:28:21.442Z Did you run: "export NODE_OPTIONS=--openssl-legacy-provider"? (yes/no) [yes]:
+2026-04-24T19:28:21.443Z >
+2026-04-24T19:28:23.092Z [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+2026-04-24T19:29:04.097Z Set permissions...
+2026-04-24T19:29:06.392Z chown: unknown user/group apache:apache
+2026-04-24T19:29:06.393Z Optimize application...
+2026-04-24T19:29:07.394Z ╭────────────────────────────────╮
+2026-04-24T19:29:07.394Z │                                │
+2026-04-24T19:29:07.394Z │   ╭─╴  Addons Installed  ╶─╮   │
+2026-04-24T19:29:07.394Z │   ╰─╴    successfully    ╶─╯   │
+2026-04-24T19:29:07.394Z │                                │
+2026-04-24T19:29:07.394Z ╰────────────────────────────────╯
+2026-04-24T19:29:07.423Z 🔧 Recompilando assets del panel (rescate post-Arix)...
+2026-04-24T19:29:07.626Z yarn run v1.22.22
+2026-04-24T19:29:07.665Z $ yarn run clean && cross-env NODE_ENV=production ./node_modules/.bin/webpack --mode production
+2026-04-24T19:29:07.951Z $ cd public/assets && find . \( -name "*.js" -o -name "*.map" \) -type f -delete
+2026-04-24T19:29:09.183Z [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+2026-04-24T19:29:47.857Z 18 assets
+2026-04-24T19:29:47.857Z 2464 modules
+2026-04-24T19:29:47.857Z webpack 5.103.0 compiled successfully in 38751 ms
+2026-04-24T19:29:47.968Z Done in 40.35s.
+2026-04-24T19:29:47.988Z ✅ Recompilación de assets completada.
+2026-04-24T19:29:47.988Z ⚙️ Ejecutando migraciones y optimizaciones tras instalar Arix...
+2026-04-24T19:29:48.209Z INFO  Nothing to migrate.
+2026-04-24T19:29:48.435Z INFO  Clearing cached bootstrap files.
+2026-04-24T19:29:48.458Z cache .......................................................... 2.79ms DONE
+2026-04-24T19:29:48.478Z compiled ....................................................... 0.67ms DONE
+2026-04-24T19:29:48.497Z config ......................................................... 0.58ms DONE
+2026-04-24T19:29:48.517Z events ......................................................... 0.59ms DONE
+2026-04-24T19:29:48.537Z routes ......................................................... 0.61ms DONE
+2026-04-24T19:29:48.561Z views .......................................................... 3.79ms DONE
+2026-04-24T19:29:48.886Z INFO  Caching framework bootstrap, configuration, and metadata.
+2026-04-24T19:29:48.932Z config ........................................................ 25.22ms DONE
+2026-04-24T19:29:48.953Z events ......................................................... 1.18ms DONE
+2026-04-24T19:29:49.022Z routes ........................................................ 48.77ms DONE
+2026-04-24T19:29:49.169Z views ........................................................ 128.90ms DONE
+2026-04-24T19:29:49.395Z INFO  Route cache cleared successfully.
+2026-04-24T19:29:49.621Z INFO  Caching framework bootstrap, configuration, and metadata.
+2026-04-24T19:29:49.671Z config ........................................................ 30.63ms DONE
+2026-04-24T19:29:49.692Z events ......................................................... 1.26ms DONE
+2026-04-24T19:29:49.756Z routes ........................................................ 46.07ms DONE
+2026-04-24T19:29:49.909Z views ........................................................ 134.11ms DONE
+2026-04-24T19:29:49.917Z 🔒 Estableciendo permisos de storage y cache...
+2026-04-24T19:29:49.929Z ✨ Instalación de Arix completada exitosamente!
+2026-04-24T19:29:49.929Z Publicando assets de extensiones Blueprint...
+2026-04-24T19:29:49.941Z -> Assets publicados para: blueprint
+2026-04-24T19:29:49.941Z Ajustando permisos y migraciones finales...
+2026-04-24T19:29:50.183Z INFO  Nothing to migrate.
+2026-04-24T19:29:50.192Z Iniciando Pterodactyl...
+2026-04-24T19:29:50.579Z 2026-04-24 19:29:50,578 CRIT Server 'unix_http_server' running without any HTTP authentication checking

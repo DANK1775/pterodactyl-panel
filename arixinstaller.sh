@@ -58,8 +58,11 @@ validate_arix_license() {
 install_with_output_guard() {
     local label="$1"
     shift
-    local out_file
-    out_file=$(mktemp)
+    local log_dir="/app/storage/logs"
+    local slug
+    slug="$(echo "$label" | tr '[:upper:] ' '[:lower:]-')"
+    mkdir -p "$log_dir" 2>/dev/null || true
+    local out_file="${log_dir}/arix-install-${slug}.log"
 
     # Los comandos `php artisan arix install` y `php artisan addons install` usan:
     #   1) confirm('dependencias instaladas?', default=yes)  -> 'y' o línea vacía
@@ -82,17 +85,22 @@ install_with_output_guard() {
 
     if [ "$cmd_exit" -ne 0 ]; then
         echo "❌ ${label}: instalador terminó con código ${cmd_exit}."
-        rm -f "$out_file"
+        echo "   Log completo: ${out_file}"
         return 1
     fi
 
+    # El instalador PHP usa exec() y NO propaga códigos de error: incluso cuando
+    # `yarn build:production` falla, imprime el banner "installed successfully".
+    # Por eso inspeccionamos la salida en busca de indicadores de fallo reales.
     if grep -qiE "Fail, please contact Weijers\.one\.|error Command failed with exit code 1|License is invalid" "$out_file"; then
         echo "❌ ${label}: se detectó fallo de validación/build en salida del instalador."
-        rm -f "$out_file"
+        echo "   Log completo: ${out_file}"
+        echo "   --- Últimas líneas del log (para diagnóstico) ---"
+        tail -n 40 "$out_file" | sed 's/^/   | /'
+        echo "   --- Fin del fragmento ---"
         return 1
     fi
 
-    rm -f "$out_file"
     return 0
 }
 
@@ -132,12 +140,14 @@ fi
 ADDON_LICENSE_KEY="$(read_env_value "PLUGINS_ADDON_LICENSE_KEY")"
 THEME_LICENSE_KEY="$(read_env_value "ARIX_LICENSE_KEY")"
 ARIX_COMPONENT_INSTALLED=false
+ARIX_COMPONENT_ATTEMPTED=false
 
 # Orden requerido: 1º Tema (asienta la base de assets/traducciones), 2º Addons
 # (depende del build de yarn/assets del tema en muchos casos).
 
 # 1. Instalar Arix Theme (solo si licencia valida)
 if validate_arix_license "https://arix.gg/license/arix-theme" "$THEME_LICENSE_KEY" "Arix Theme"; then
+    ARIX_COMPONENT_ATTEMPTED=true
     echo "🎨 Ejecutando instalación de Arix Theme..."
     if install_with_output_guard "Arix Theme" php artisan arix install; then
         ARIX_COMPONENT_INSTALLED=true
@@ -152,6 +162,7 @@ fi
 
 # 2. Instalar Arix Addon Pack (solo si licencia valida)
 if validate_arix_license "https://api.arix.gg/resource/arix-addons/verify" "$ADDON_LICENSE_KEY" "Arix Addons"; then
+    ARIX_COMPONENT_ATTEMPTED=true
     echo "📦 Ejecutando instalación de Arix Addon Pack..."
     if install_with_output_guard "Arix Addons" php artisan addons install; then
         ARIX_COMPONENT_INSTALLED=true
@@ -160,7 +171,19 @@ else
     echo "⏭️ Saltando instalación de Arix Addons."
 fi
 
-# 3. Comandos de optimización y resolución de errores (Basado en la documentación oficial)
+# 3. Rebuild de assets de rescate: si se intentó instalar Arix (con o sin éxito)
+# recompilamos con stdout directo para (a) asegurar assets frescos aún si el
+# instalador reportó fallo y (b) mostrar el error real de webpack si persiste.
+if [ "$ARIX_COMPONENT_ATTEMPTED" = true ]; then
+    echo "🔧 Recompilando assets del panel (rescate post-Arix)..."
+    if yarn build:production; then
+        echo "✅ Recompilación de assets completada."
+    else
+        echo "⚠️ La recompilación de assets falló. Revisa /app/storage/logs/arix-install-*.log."
+    fi
+fi
+
+# 4. Comandos de optimización y resolución de errores (Basado en la documentación oficial)
 echo "⚙️ Ejecutando migraciones y optimizaciones tras instalar Arix..."
 php artisan migrate --force
 php artisan optimize:clear
@@ -169,10 +192,14 @@ chmod -R 755 storage/* bootstrap/cache
 php artisan route:clear
 php artisan optimize
 
-# 4. Ajustar permisos según la documentación de Arix
+# 5. Ajustar permisos según la documentación de Arix
 echo "🔒 Estableciendo permisos de storage y cache..."
 chmod -R 755 storage/* bootstrap/cache 2>/dev/null || true
 chown -R "$OWNERSHIP" storage bootstrap/cache 2>/dev/null || true
+# Los assets de public/ deben ser legibles por nginx tras el rebuild.
+if [ -d /app/public/assets ]; then
+    chown -R "$OWNERSHIP" /app/public/assets 2>/dev/null || true
+fi
 
 if [ "$ARIX_COMPONENT_INSTALLED" = true ]; then
     touch /app/.arix_installed

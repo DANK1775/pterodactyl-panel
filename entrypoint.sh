@@ -151,15 +151,27 @@ if [ -d "/app/.blueprint/extensions" ]; then
     done
 fi
 
-# Volver a asegurar permisos en caso de que Blueprint haya creado algo
+# Volver a asegurar permisos en caso de que Blueprint haya creado algo.
+# Ownership: todo al usuario web detectado arriba.
+# Permisos:  775 solo para storage/cache/.blueprint (escribibles por el panel)
+#            644/755 para .blueprintrc (archivo) y public/ (assets servidos)
 echo "Ajustando permisos y migraciones finales..."
-chown -R nginx:nginx /app/storage /app/bootstrap/cache /app/.blueprintrc /app/.blueprint /app/public || chown -R www-data:www-data /app/storage /app/bootstrap/cache /app/.blueprintrc /app/.blueprint /app/public || true
-chmod -R 775 /app/storage /app/bootstrap/cache /app/.blueprintrc /app/.blueprint /app/public || true
+chown -R "$OWNERSHIP" /app/storage /app/bootstrap/cache /app/public 2>/dev/null || true
+chmod -R 775 /app/storage /app/bootstrap/cache 2>/dev/null || true
 
-# Asegurar que el directorio de assets exista y tenga permisos
+if [ -f /app/.blueprintrc ]; then
+    chown "$OWNERSHIP" /app/.blueprintrc 2>/dev/null || true
+    chmod 644 /app/.blueprintrc 2>/dev/null || true
+fi
+
+if [ -d /app/.blueprint ]; then
+    chown -R "$OWNERSHIP" /app/.blueprint 2>/dev/null || true
+    chmod -R 775 /app/.blueprint 2>/dev/null || true
+fi
+
+# Asegurar que el directorio de assets públicos tenga permisos de lectura.
 if [ -d "/app/public/assets" ]; then
-    chown -R "$OWNERSHIP" /app/public/assets 2>/dev/null || true
-    chmod -R 755 /app/public/assets 2>/dev/null || true
+    chmod -R a+rX /app/public/assets 2>/dev/null || true
 fi
 
 # Migración final para asegurarnos de que todo lo que se instaló

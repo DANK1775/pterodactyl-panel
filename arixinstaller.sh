@@ -144,18 +144,25 @@ if [ -f /app/package.json ]; then
         @dnd-kit/utilities
     )
 
-    MISSING_JS_DEPS=$(node -e '
+    mapfile -t MISSING_JS_DEPS < <(node -e '
 const fs = require("fs");
-const pkg = JSON.parse(fs.readFileSync("/app/package.json", "utf8"));
-const installed = Object.assign({}, pkg.dependencies || {}, pkg.devDependencies || {});
-const required = process.argv.slice(1);
-const missing = required.filter((name) => !installed[name]);
-process.stdout.write(missing.join(" "));
+try {
+  const pkg = JSON.parse(fs.readFileSync("/app/package.json", "utf8"));
+  const installed = Object.assign({}, pkg.dependencies || {}, pkg.devDependencies || {});
+  const required = process.argv.slice(1);
+  const missing = required.filter((name) => !installed[name]);
+  for (const dep of missing) {
+    console.log(dep);
+  }
+} catch (error) {
+  console.error("No se pudo leer o parsear /app/package.json:", error.message);
+  process.exit(1);
+}
 ' "${REQUIRED_JS_DEPS[@]}")
 
-    if [ -n "$MISSING_JS_DEPS" ]; then
-        echo "📦 Instalando dependencias faltantes: $MISSING_JS_DEPS"
-        yarn add --ignore-engines $MISSING_JS_DEPS
+    if [ "${#MISSING_JS_DEPS[@]}" -gt 0 ]; then
+        echo "📦 Instalando dependencias faltantes: ${MISSING_JS_DEPS[*]}"
+        yarn add --ignore-engines "${MISSING_JS_DEPS[@]}"
     else
         echo "✅ Todas las dependencias JS críticas ya están instaladas."
     fi

@@ -144,21 +144,32 @@ if [ -f /app/package.json ]; then
         @dnd-kit/utilities
     )
 
-    mapfile -t MISSING_JS_DEPS < <(node -e '
+    MISSING_DEPS_FILE="$(mktemp)"
+    if node - "${REQUIRED_JS_DEPS[@]}" > "$MISSING_DEPS_FILE" <<'NODE_EOF'
 const fs = require("fs");
+
 try {
-  const pkg = JSON.parse(fs.readFileSync("/app/package.json", "utf8"));
-  const installed = Object.assign({}, pkg.dependencies || {}, pkg.devDependencies || {});
-  const required = process.argv.slice(1);
-  const missing = required.filter((name) => !installed[name]);
-  for (const dep of missing) {
-    console.log(dep);
-  }
+    const pkg = JSON.parse(fs.readFileSync("/app/package.json", "utf8"));
+    const installed = Object.assign({}, pkg.dependencies || {}, pkg.devDependencies || {});
+    const required = process.argv.slice(2);
+    const missing = required.filter((name) => !installed[name]);
+
+    for (const dep of missing) {
+        console.log(dep);
+    }
 } catch (error) {
-  console.error("No se pudo leer o parsear /app/package.json:", error.message);
-  process.exit(1);
+    console.error("No se pudo leer o parsear /app/package.json:", error.message);
+    process.exit(1);
 }
-' "${REQUIRED_JS_DEPS[@]}")
+NODE_EOF
+    then
+        mapfile -t MISSING_JS_DEPS < "$MISSING_DEPS_FILE"
+    else
+        rm -f "$MISSING_DEPS_FILE"
+        echo "❌ Falló la detección de dependencias JS faltantes."
+        exit 1
+    fi
+    rm -f "$MISSING_DEPS_FILE"
 
     if [ "${#MISSING_JS_DEPS[@]}" -gt 0 ]; then
         echo "📦 Instalando dependencias faltantes: ${MISSING_JS_DEPS[*]}"

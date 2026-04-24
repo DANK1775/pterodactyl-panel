@@ -127,9 +127,41 @@ php artisan config:clear 2>/dev/null || true
 php artisan cache:clear 2>/dev/null || true
 composer dump-autoload --no-scripts 2>/dev/null || true
 
-# 📦 FIX: Instalar dependencias faltantes para la compilación de Arix
-echo "📦 Instalando dependencias críticas (xterm-addon-unicode11) y resolviendo peer dependencies..."
-yarn add xterm-addon-unicode11 @preact/signals-react styled-components redux --ignore-engines
+# 📦 FIX: Instalar dependencias faltantes para la compilación de Arix/Addons
+# Solo instalamos paquetes que realmente faltan en package.json para evitar
+# reinstalaciones innecesarias en cada arranque del contenedor.
+echo "📦 Verificando dependencias JS críticas para compilar Arix/Addons..."
+if [ -f /app/package.json ]; then
+    REQUIRED_JS_DEPS=(
+        xterm-addon-unicode11
+        @preact/signals-react
+        styled-components
+        redux
+        react-icons
+        markdown-to-jsx
+        @dnd-kit/core
+        @dnd-kit/sortable
+        @dnd-kit/utilities
+    )
+
+    MISSING_JS_DEPS=$(node -e '
+const fs = require("fs");
+const pkg = JSON.parse(fs.readFileSync("/app/package.json", "utf8"));
+const installed = Object.assign({}, pkg.dependencies || {}, pkg.devDependencies || {});
+const required = process.argv.slice(1);
+const missing = required.filter((name) => !installed[name]);
+process.stdout.write(missing.join(" "));
+' "${REQUIRED_JS_DEPS[@]}")
+
+    if [ -n "$MISSING_JS_DEPS" ]; then
+        echo "📦 Instalando dependencias faltantes: $MISSING_JS_DEPS"
+        yarn add --ignore-engines $MISSING_JS_DEPS
+    else
+        echo "✅ Todas las dependencias JS críticas ya están instaladas."
+    fi
+else
+    echo "⚠️ /app/package.json no encontrado; se omite instalación de dependencias JS."
+fi
 
 # Verificar que los comandos de Arix estén registrados en Artisan antes de usarlos.
 # Si no lo están, probablemente los archivos no se copiaron al /app o el autoloader

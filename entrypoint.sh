@@ -77,18 +77,37 @@ DB_HOST_VALUE="${DB_HOST_VALUE:-database}"
 DB_PORT_VALUE="${DB_PORT_VALUE:-3306}"
 
 echo "Esperando a la base de datos en ${DB_HOST_VALUE}:${DB_PORT_VALUE}..."
-for i in $(seq 1 60); do
+for i in $(seq 1 120); do
     if (echo > /dev/tcp/${DB_HOST_VALUE}/${DB_PORT_VALUE}) >/dev/null 2>&1; then
         echo "✓ Base de datos aceptando conexiones TCP."
         break
     fi
-    if [ "$i" -eq 60 ]; then
-        echo "⚠️ La base de datos no respondió tras 60s, continuando igualmente..."
+    if [ "$i" -eq 120 ]; then
+        echo "⚠️ La base de datos no respondió tras 120s, continuando igualmente..."
     fi
     sleep 1
 done
-# Pausa adicional corta para que MariaDB termine de inicializar privilegios
-sleep 2
+# Pausa adicional para que MariaDB termine de inicializar privilegios tras aceptar TCP
+sleep 5
+
+# Esperar a Redis (SESSION_DRIVER y CACHE_DRIVER apuntan a Redis; si no está listo,
+# PHP-FPM falla al escribir sesiones en el primer request y devuelve 502).
+REDIS_HOST_VALUE="$(grep -E '^REDIS_HOST=' /app/.env | head -n1 | cut -d'=' -f2- | tr -d '"' | tr -d "'")"
+REDIS_PORT_VALUE="$(grep -E '^REDIS_PORT=' /app/.env | head -n1 | cut -d'=' -f2- | tr -d '"' | tr -d "'")"
+REDIS_HOST_VALUE="${REDIS_HOST_VALUE:-cache}"
+REDIS_PORT_VALUE="${REDIS_PORT_VALUE:-6379}"
+
+echo "Esperando a Redis en ${REDIS_HOST_VALUE}:${REDIS_PORT_VALUE}..."
+for i in $(seq 1 30); do
+    if (echo > /dev/tcp/${REDIS_HOST_VALUE}/${REDIS_PORT_VALUE}) >/dev/null 2>&1; then
+        echo "✓ Redis aceptando conexiones TCP."
+        break
+    fi
+    if [ "$i" -eq 30 ]; then
+        echo "⚠️ Redis no respondió tras 30s, continuando igualmente..."
+    fi
+    sleep 1
+done
 
 # ==========================================
 # 1. Preparar base de Pterodactyl

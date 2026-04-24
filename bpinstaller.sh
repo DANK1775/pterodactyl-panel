@@ -124,8 +124,8 @@ chmod +x blueprint.sh
 
 echo "Instalando dependencias de Yarn para Blueprint..."
 
-# Instalar dependencias de yarn (solo producción, como en el PR)
-if ! yarn install --production --frozen-lockfile; then
+# Instalar dependencias de yarn (mantener devDependencies para que Arix pueda compilar)
+if ! yarn install --frozen-lockfile; then
     echo "❌ Error: Falló la instalación de dependencias de Blueprint"
     exit 1
 fi

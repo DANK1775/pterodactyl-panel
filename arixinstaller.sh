@@ -127,6 +127,10 @@ php artisan config:clear 2>/dev/null || true
 php artisan cache:clear 2>/dev/null || true
 composer dump-autoload --no-scripts 2>/dev/null || true
 
+# 📦 FIX: Instalar dependencias faltantes para la compilación de Arix
+echo "📦 Instalando dependencias críticas (xterm-addon-unicode11) y resolviendo peer dependencies..."
+yarn add xterm-addon-unicode11 @preact/signals-react styled-components redux --ignore-engines
+
 # Verificar que los comandos de Arix estén registrados en Artisan antes de usarlos.
 # Si no lo están, probablemente los archivos no se copiaron al /app o el autoloader
 # no se regeneró — fallar rápido con un mensaje útil en vez de intentar instalar.

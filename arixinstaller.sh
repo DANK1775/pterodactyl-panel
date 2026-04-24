@@ -144,7 +144,7 @@ if [ -f /app/package.json ]; then
         @dnd-kit/utilities
     )
 
-    MISSING_DEPS_FILE="$(mktemp)" || {
+    MISSING_DEPS_FILE="$(mktemp -t arix_deps.XXXXXX)" || {
         echo "❌ No se pudo crear archivo temporal para dependencias JS."
         exit 1
     }
@@ -168,6 +168,8 @@ NODE_EOF
     then
         MISSING_JS_DEPS=()
         while IFS= read -r dep; do
+            dep="${dep#"${dep%%[![:space:]]*}"}"
+            dep="${dep%"${dep##*[![:space:]]}"}"
             [ -n "$dep" ] && MISSING_JS_DEPS+=("$dep")
         done < "$MISSING_DEPS_FILE"
     else

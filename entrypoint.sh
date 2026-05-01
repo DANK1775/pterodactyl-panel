@@ -114,7 +114,7 @@ done
 # ==========================================
 # Regenerar autoloader antes de correr cualquier artisan, ya que el Dockerfile
 # copia los comandos Arix/Addons y necesitamos que Composer los descubra.
-(cd /app && composer dump-autoload --no-scripts --optimize 2>/dev/null) || true
+#(cd /app && composer dump-autoload --no-scripts --optimize 2>/dev/null) || true
 
 php artisan migrate --force --seed --step
 php artisan optimize:clear
@@ -148,27 +148,27 @@ fi
 # 3. Instalar Arix Theme y Addons
 # ==========================================
 # Arix realizará su propia compilación (Yarn Build) y validación durante su instalador.
-if [ ! -f "/app/.arix_installed" ]; then
-    echo "Ejecutando instalador de Arix Theme y Addons..."
-    bash /arixinstaller.sh
-else
-    echo "⏭️ Arix ya fue instalado en este contenedor."
-fi
+#if [ ! -f "/app/.arix_installed" ]; then
+#    echo "Ejecutando instalador de Arix Theme y Addons..."
+#    bash /arixinstaller.sh
+#else
+#    echo "⏭️ Arix ya fue instalado en este contenedor."
+#fi
 
 # Publicar assets de Blueprint y extensiones en public/
 # Esto es necesario porque Blueprint genera los assets en .blueprint/ pero no los
 # copia automáticamente al directorio público servido por Nginx.
-if [ -d "/app/.blueprint/extensions" ]; then
-    echo "Publicando assets de extensiones Blueprint..."
-    for ext_dir in /app/.blueprint/extensions/*/assets; do
-        if [ -d "$ext_dir" ]; then
-            ext_name=$(basename "$(dirname "$ext_dir")")
-            mkdir -p "/app/public/assets/extensions/$ext_name"
-            cp -r "$ext_dir"/* "/app/public/assets/extensions/$ext_name/" 2>/dev/null || true
-            echo "  -> Assets publicados para: $ext_name"
-        fi
-    done
-fi
+#if [ -d "/app/.blueprint/extensions" ]; then
+#    echo "Publicando assets de extensiones Blueprint..."
+#    for ext_dir in /app/.blueprint/extensions/*/assets; do
+#        if [ -d "$ext_dir" ]; then
+#            ext_name=$(basename "$(dirname "$ext_dir")")
+#            mkdir -p "/app/public/assets/extensions/$ext_name"
+#            cp -r "$ext_dir"/* "/app/public/assets/extensions/$ext_name/" 2>/dev/null || true
+#            echo "  -> Assets publicados para: $ext_name"
+#        fi
+#    done
+#fi
 
 # Volver a asegurar permisos en caso de que Blueprint haya creado algo.
 # Ownership: todo al usuario web detectado arriba.

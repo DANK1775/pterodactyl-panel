@@ -41,8 +41,6 @@ MAIL_FROM=no-reply@example.com
 MAIL_FROM_NAME="Pterodactyl Panel"
 HASHIDS_SALT=
 HASHIDS_LENGTH=8
-PLUGINS_ADDON_LICENSE_KEY=
-ARIX_LICENSE_KEY=
 ENVEOF
 fi
 
@@ -112,9 +110,6 @@ done
 # ==========================================
 # 1. Preparar base de Pterodactyl
 # ==========================================
-# Regenerar autoloader antes de correr cualquier artisan, ya que el Dockerfile
-# copia los comandos Arix/Addons y necesitamos que Composer los descubra.
-#(cd /app && composer dump-autoload --no-scripts --optimize 2>/dev/null) || true
 
 php artisan migrate --force --seed --step
 php artisan optimize:clear
@@ -143,17 +138,6 @@ if php artisan list --raw | grep -q '^blueprint'; then
 else
     echo "⚠️ Namespace blueprint no disponible en Artisan; Blueprint ya fue instalado por blueprint.sh."
 fi
-
-# ==========================================
-# 3. Instalar Arix Theme y Addons
-# ==========================================
-# Arix realizará su propia compilación (Yarn Build) y validación durante su instalador.
-#if [ ! -f "/app/.arix_installed" ]; then
-#    echo "Ejecutando instalador de Arix Theme y Addons..."
-#    bash /arixinstaller.sh
-#else
-#    echo "⏭️ Arix ya fue instalado en este contenedor."
-#fi
 
 # Publicar assets de Blueprint y extensiones en public/
 # Esto es necesario porque Blueprint genera los assets en .blueprint/ pero no los
@@ -194,7 +178,7 @@ if [ -d "/app/public/assets" ]; then
 fi
 
 # Migración final para asegurarnos de que todo lo que se instaló
-# (Blueprint, Arix, otros plugins) migre correctamente.
+# (Blueprint, otros plugins) migre correctamente.
 php artisan migrate --force --step
 
 # Configurar SSL si se proveen certificados

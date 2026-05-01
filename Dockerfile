@@ -4,15 +4,10 @@ USER root
 
 WORKDIR /app
 
-# Dependencias del sistema. Se instalan ANTES de copiar archivos de Arix porque
-# los comandos `php artisan arix` y `php artisan addons` usan rsync para mover
-# archivos a /app, y porque necesitamos jq para parsear el release de Blueprint.
+# Dependencias del sistema. Necesitamos jq para parsear el release de Blueprint.
 #
-# IMPORTANTE: NO se instala `nodejs` desde Alpine porque la rama actual trae
-# Node 24, que rompe `yarn build:production` dentro de los instaladores de
-# Arix (exit code 1). Fijamos Node 20 (LTS) con el build musl no-oficial:
-# los paquetes `react-icons`, `markdown-to-jsx`, `@dnd-kit/*` y el webpack
-# legacy del panel Pterodactyl/Arix se probaron y funcionan con Node 17-20.
+# Fijamos Node 20 (LTS) con el build musl no-oficial para evitar problemas
+# con Node 24 en Alpine.
 RUN apk update && \
     apk add --no-cache ca-certificates curl git gnupg unzip wget zip bash tar sed \
     ncurses mysql-client jq rsync libstdc++ && \
@@ -35,20 +30,6 @@ RUN set -eux; \
     npm install -g yarn@1.22.22; \
     node --version; npm --version; yarn --version
 
-# Copiamos las carpetas de Arix en el contenedor para que estén listas para el
-# instalador. Fusiona las carpetas de origen (app, config, arix/<ver>, addons/<ver>)
-# con las de Pterodactyl.
-#   - `arix/theme/pterodactyl/`   => comando `arix`   + config + carpeta `arix/v2.0.7/`
-#   - `arix/addons/pterodactyl/`  => comando `addons` + config + carpeta `addons/v1.3.6/`
-COPY ./arix/theme/pterodactyl/ /app/
-COPY ./arix/addons/pterodactyl/ /app/
-
-# Regenerar el autoloader de Composer para que los comandos recién copiados
-# (Arix, Addons, ArixLang) sean descubiertos por Laravel/Artisan al arrancar.
-# Sin esto las rutas Pterodactyl\\Console\\Commands\\Arix no se resuelven cuando
-# la imagen se construye sobre el classmap optimizado del panel.
-RUN if [ -f /app/composer.json ]; then cd /app && composer dump-autoload --no-scripts --optimize 2>/dev/null || true; fi
-
 RUN chown -R root:root /app/*
 
 # Configurar cliente MariaDB para no exigir SSL (Fix ERROR 2026)
@@ -69,8 +50,7 @@ RUN mkdir -p /var/log/supervisord
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./bpinstaller.sh /bpinstaller.sh
-COPY ./arixinstaller.sh /arixinstaller.sh
-RUN chmod +x /entrypoint.sh /bpinstaller.sh /arixinstaller.sh
+RUN chmod +x /entrypoint.sh /bpinstaller.sh
 
 # run entrypoint script (migration and setup) and then start supervisor
 ENTRYPOINT ["/entrypoint.sh"]
